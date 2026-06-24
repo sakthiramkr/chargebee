@@ -3,853 +3,962 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sakthi Ramkumar — Senior Product Marketer</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Sakthi Ramkumar — Product Marketing Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;700;800&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0a0f;
-  --bg2:#111118;
-  --bg3:#18181f;
-  --card:#1c1c26;
-  --border:#2a2a3a;
-  --border2:#3a3a50;
-  --blue:#4f8ef7;
-  --blue2:#2563eb;
-  --blue-glow:rgba(79,142,247,0.15);
-  --green:#22c55e;
-  --amber:#f59e0b;
-  --text:#f0f0f8;
-  --text2:#a0a0c0;
-  --text3:#606080;
-  --mono:'JetBrains Mono',monospace;
-  --sans:'Inter',system-ui,sans-serif;
+  --ink:#0c0c0c;--paper:#EDEAF6;--cream:#E0DBF2;
+  --accent:#6533FF;--accent-light:#B8A4FF;
+  --dark:#07092A;--slate:#252438;--muted:#726E88;
+  --rule:rgba(12,12,12,0.12);
 }
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{font-size:clamp(15px,1.2vw,19px);scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none}
 
-/* SCROLLBAR */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+/* CURSOR */
+.cur{width:10px;height:10px;background:var(--accent);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cur.on{width:34px;height:34px;background:transparent;border:2px solid var(--accent)}
+.cur-t{width:26px;height:26px;border:1px solid rgba(101,51,255,.3);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .22s ease}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(10,10,15,0.92);backdrop-filter:blur(16px)}
-.nav-logo{font-family:var(--mono);font-size:13px;color:var(--blue);letter-spacing:0.05em;text-decoration:none}
-.nav-logo span{color:var(--text3)}
-.nav-links{display:flex;gap:0;background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-.nav-links a{font-size:12px;color:var(--text2);text-decoration:none;padding:0.4rem 1rem;transition:all 0.2s;border-right:1px solid var(--border)}
-.nav-links a:last-child{border-right:none}
-.nav-links a:hover,.nav-links a.active{background:var(--blue2);color:#fff}
+/* HEADER */
+header{display:flex;align-items:center;justify-content:space-between;padding:.85rem 3rem;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:200;background:var(--paper)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;letter-spacing:.1em}
+nav{display:flex;gap:1.8rem;flex-wrap:wrap}
+nav button{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:0;transition:color .2s}
+nav button:hover{color:var(--accent)}
+
+/* SECTION HEADER */
+section{border-bottom:1px solid var(--rule)}
+.sh{display:flex;align-items:baseline;justify-content:space-between;padding:.75rem 3rem;border-bottom:1px solid var(--rule)}
+.sl{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.sl::before{content:'';width:18px;height:1px;background:var(--accent);display:inline-block}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--rule)}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 2rem 4rem;max-width:900px;margin:0 auto}
-.hero-tag{font-family:var(--mono);font-size:12px;color:var(--green);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem}
-.hero-tag::before{content:'';width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;line-height:1.1;margin-bottom:0.5rem;color:var(--text)}
-.hero-typewriter{font-size:clamp(1.2rem,2.5vw,1.8rem);font-family:var(--mono);color:var(--blue);margin-bottom:2rem;min-height:2.2rem}
-.cursor{display:inline-block;width:2px;height:1.2em;background:var(--blue);margin-left:2px;animation:blink 1s infinite;vertical-align:text-bottom}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-.hero-desc{font-size:16px;color:var(--text2);max-width:580px;line-height:1.8;margin-bottom:2.5rem}
-.hero-fintech-tag{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(79,142,247,0.1);border:1px solid rgba(79,142,247,0.3);color:var(--blue);font-size:13px;padding:0.5rem 1rem;border-radius:6px;margin-bottom:2rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--blue2);color:#fff;padding:0.7rem 1.5rem;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:all 0.2s;border:none;cursor:pointer}
-.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--text2);padding:0.7rem 1.5rem;border-radius:8px;text-decoration:none;font-size:14px;font-weight:500;transition:all 0.2s;border:1px solid var(--border2);cursor:pointer}
-.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-
-/* METRICS BAR */
-.metrics-bar{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg2);margin-top:3rem}
-.metric{padding:1.25rem 1rem;border-right:1px solid var(--border);text-align:center}
-.metric:last-child{border-right:none}
-.metric-val{font-family:var(--mono);font-size:1.5rem;font-weight:500;color:var(--blue);display:block}
-.metric-label{font-size:11px;color:var(--text3);margin-top:0.2rem;line-height:1.3}
-
-/* SECTION */
-section{max-width:960px;margin:0 auto;padding:5rem 2rem}
-.section-eyebrow{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem}
-.section-eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
-.section-title{font-size:1.8rem;font-weight:600;margin-bottom:2.5rem;color:var(--text)}
-
-/* CASE STUDY TABS */
-.cs-tabs{display:flex;gap:0;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:2rem;flex-wrap:wrap}
-.cs-tab{flex:1;min-width:120px;padding:0.7rem 1rem;background:var(--bg2);color:var(--text2);font-size:12px;font-weight:500;cursor:pointer;border:none;border-right:1px solid var(--border);transition:all 0.2s;text-align:center;font-family:var(--sans)}
-.cs-tab:last-child{border-right:none}
-.cs-tab:hover{background:var(--bg3);color:var(--text)}
-.cs-tab.active{background:var(--blue2);color:#fff}
-.cs-tab .tab-num{display:block;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.5);margin-bottom:2px}
-.cs-tab.active .tab-num{color:rgba(255,255,255,0.7)}
-
-/* CASE STUDY PANEL */
-.cs-panel{display:none}
-.cs-panel.active{display:block}
-.cs-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.cs-card-header{padding:2rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
-.cs-card-left{flex:1}
-.cs-tag-row{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1rem}
-.tag{font-size:11px;font-weight:500;padding:0.25rem 0.6rem;border-radius:4px;font-family:var(--mono)}
-.tag-blue{background:rgba(79,142,247,0.15);color:var(--blue);border:1px solid rgba(79,142,247,0.3)}
-.tag-green{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
-.tag-amber{background:rgba(245,158,11,0.12);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
-.cs-headline{font-size:1.4rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;line-height:1.3}
-.cs-sub{font-size:14px;color:var(--text2);line-height:1.7}
-.cs-impact{display:flex;flex-direction:column;gap:0.75rem;min-width:160px}
-.impact-stat{text-align:center;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1rem}
-.impact-num{font-family:var(--mono);font-size:1.4rem;font-weight:500;color:var(--green);display:block}
-.impact-label{font-size:11px;color:var(--text3)}
-
-.cs-body{padding:2rem}
-.cs-body-text{font-size:14.5px;color:var(--text2);line-height:1.8;margin-bottom:1.5rem}
-.cs-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
-.cs-step{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1rem}
-.step-num{font-family:var(--mono);font-size:10px;color:var(--blue);margin-bottom:0.4rem}
-.step-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:0.3rem}
-.step-desc{font-size:12px;color:var(--text3);line-height:1.5}
-
-/* TRANSFER NOTE */
-.transfer-note{border-left:3px solid var(--blue);background:rgba(79,142,247,0.06);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin-top:1.5rem}
-.transfer-note-label{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:0.08em;margin-bottom:0.4rem}
-.transfer-note p{font-size:13.5px;color:var(--text2);font-style:italic;margin:0;line-height:1.6}
-
-/* CI TRACKER EMBEDDED */
-#ci-shell-embed *{box-sizing:border-box}
-.ciw{background:#fff;color:#1a1a1a;font-family:'Inter',system-ui,sans-serif;font-size:14px}
-.ciw-hdr{background:#07092A;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
-.ciw-hdr-title{font-size:13px;font-weight:600;color:#EDEAF6}
-.ciw-hdr-sub{font-size:10px;color:rgba(184,164,255,.5);letter-spacing:.07em;text-transform:uppercase;font-family:'JetBrains Mono',monospace}
-.ciw-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:12px 16px 0}
-.ciw-stat{background:#f9f9fb;border:1px solid #e5e4f0;border-radius:8px;padding:8px 10px}
-.ciw-stat-n{font-size:18px;font-weight:700}
-.ciw-stat-l{font-size:10px;color:#888;margin-top:1px;font-family:'JetBrains Mono',monospace}
-.ciw-tabs-wrap{padding:0 16px}
-.ciw-tabs{display:flex;border-bottom:1px solid #e5e4f0;overflow-x:auto;scrollbar-width:none}
-.ciw-tabs::-webkit-scrollbar{display:none}
-.ciw-tab{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;padding:9px 13px;cursor:pointer;color:#888;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all .15s;letter-spacing:.04em;text-transform:uppercase;background:none;border-left:none;border-right:none;border-top:none}
-.ciw-tab.active{color:#4f8ef7;border-bottom-color:#4f8ef7}
-.ciw-body{padding:14px 16px}
-.ciw-card{background:#fff;border:1px solid #e5e4f0;border-radius:10px;padding:13px;margin-bottom:8px}
-.ciw-btn{padding:7px 13px;border-radius:7px;font-size:12px;cursor:pointer;font-family:inherit;border:1px solid #d1d5db;background:#fff;color:#1a1a1a;transition:all .15s}
-.ciw-btn.primary{background:#4f8ef7;color:#fff;border-color:#4f8ef7}
-.ciw-btn.primary:hover{background:#2563eb}
-.ciw-btn.primary:disabled{background:#ccc;cursor:not-allowed}
-.ciw-btn.ghost{background:transparent;border-color:transparent;color:#888}
-.ciw-btn.sm{padding:4px 9px;font-size:11px}
-.ciw-btn.danger{color:#8B1A1A;border-color:#f5a5a5}
-.ciw-textarea{width:100%;padding:8px 10px;border:1px dashed #d1d5db;border-radius:7px;font-size:12px;background:#f9f9fb;color:#1a1a1a;font-family:inherit;resize:vertical;line-height:1.6}
-.ciw-pbox{display:flex;align-items:center;gap:8px;font-size:12px;color:#888;padding:10px 12px;background:#f9f9fb;border-radius:8px;margin-top:8px;border:1px solid #e5e4f0}
-.ciw-spinner{width:12px;height:12px;border:2px solid #e5e4f0;border-top-color:#4f8ef7;border-radius:50%;animation:cispin2 .7s linear infinite;flex-shrink:0}
-@keyframes cispin2{to{transform:rotate(360deg)}}
-.ciw-err{background:#fce8e8;color:#8B1A1A;padding:8px 12px;border-radius:8px;font-size:11px;margin-top:6px}
-.ciw-badge{display:inline-flex;align-items:center;padding:2px 6px;border-radius:999px;font-size:10px;font-weight:600;white-space:nowrap;font-family:'JetBrains Mono',monospace}
-.bprice2{background:#fce8f5;color:#8B1A6B}
-.blang2{background:#EDE3FF;color:#5B21B6}
-.bprod2{background:#E6F1FB;color:#185FA5}
-.bcamp2{background:#FAEEDA;color:#854F0B}
-.bhire2{background:#EAF3DE;color:#3B6D11}
-.bnois2{background:#f3f4f6;color:#4b5563}
-.ciw-act-block{border-radius:7px;padding:9px 11px;margin-top:7px;font-size:12px}
-.act-do2{background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d}
-.act-watch2{background:#fffbeb;border:1px solid #fde68a;color:#78350f}
-.act-fyi2{background:#f9f9fb;border:1px solid #e5e4f0;color:#4b5563}
-.ciw-act-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;font-family:'JetBrains Mono',monospace}
-.ciw-entry-grid{display:grid;grid-template-columns:72px 100px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid #f3f4f6}
-.ciw-entry-grid:last-child{border-bottom:none}
-.ciw-col-hdr{font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;font-family:'JetBrains Mono',monospace}
-.ciw-hyp-card{background:#fff;border:1px solid #e5e4f0;border-radius:10px;padding:13px;margin-bottom:8px}
-.ciw-conf-wrap{height:4px;background:#f3f4f6;border-radius:2px;margin:6px 0 10px}
-.ciw-conf-bar{height:4px;border-radius:2px}
-.ciw-sig-pill{display:inline-flex;align-items:center;gap:3px;background:#f3f4f6;border:1px solid #e5e4f0;border-radius:999px;padding:2px 6px;font-size:10px;color:#4b5563;font-family:'JetBrains Mono',monospace}
-.ciw-filt{padding:3px 8px;border-radius:999px;font-size:11px;cursor:pointer;border:1px solid #e5e4f0;background:#fff;color:#666;font-family:'JetBrains Mono',monospace}
-.ciw-filt.active{background:#4f8ef7;color:#fff;border-color:#4f8ef7}
-.ciw-empty{text-align:center;padding:2rem 1rem;color:#888;font-size:12px}
-.ciw-hyp-act{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;margin-top:9px}
-.ciw-hyp-act-label{font-size:9px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;font-family:'JetBrains Mono',monospace}
-.ciw-hyp-act-item{font-size:11px;color:#14532d;padding:2px 0;display:flex;gap:5px;line-height:1.5;align-items:flex-start}
-.ciw-team{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;flex-shrink:0;font-family:'JetBrains Mono',monospace}
-.team-pmm2{background:#EDE3FF;color:#5B21B6}
-.team-prod2{background:#E6F1FB;color:#185FA5}
-.team-sales2{background:#FAEEDA;color:#854F0B}
-.team-lead2{background:#fce8e8;color:#8B1A1A}
-@media(max-width:560px){.ciw-stats{grid-template-columns:1fr 1fr}.ciw-entry-grid{grid-template-columns:60px 80px 1fr}}
-
-/* N8N WORKFLOW */
-.workflow-container{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:2rem;overflow-x:auto}
-.workflow-title{font-family:var(--mono);font-size:12px;color:var(--text3);margin-bottom:1.5rem;letter-spacing:0.05em}
-.workflow-canvas{display:flex;align-items:center;gap:0;min-width:700px;position:relative;padding:1rem 0}
-.wf-node{background:var(--card);border:1px solid var(--border2);border-radius:10px;padding:0.75rem 1rem;min-width:110px;text-align:center;position:relative;cursor:pointer;transition:all 0.2s;flex-shrink:0}
-.wf-node:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 4px 20px var(--blue-glow)}
-.wf-node.trigger{border-color:var(--green);background:rgba(34,197,94,0.06)}
-.wf-node.action{border-color:var(--blue);background:rgba(79,142,247,0.06)}
-.wf-node.output{border-color:var(--amber);background:rgba(245,158,11,0.06)}
-.wf-icon{font-size:20px;margin-bottom:0.3rem;display:block}
-.wf-label{font-size:11px;font-weight:500;color:var(--text);line-height:1.3}
-.wf-sublabel{font-size:10px;color:var(--text3);margin-top:2px}
-.wf-arrow{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-width:30px}
-.wf-arrow::after{content:'';position:absolute;left:0;right:0;height:1px;background:var(--border2)}
-.wf-arrow-head{width:6px;height:6px;border-right:1px solid var(--border2);border-top:1px solid var(--border2);transform:rotate(45deg);position:absolute;right:0;z-index:1;background:var(--bg2)}
-.wf-tooltip{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:0.5rem 0.75rem;font-size:11px;color:var(--text2);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.2s;z-index:10}
-.wf-node:hover .wf-tooltip{opacity:1}
-
-/* WORK SAMPLES GRID */
-.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.work-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.5rem;cursor:pointer;transition:border-color 0.25s,transform 0.25s;position:relative;user-select:none}
-.work-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),var(--blue-glow),transparent 60%);opacity:0;transition:opacity 0.3s;pointer-events:none}
-.work-card:hover::before{opacity:1}
-.work-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.work-card-tag{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.6rem}
-.work-card h3{font-size:15px;font-weight:500;color:var(--text);margin-bottom:0.5rem;line-height:1.3}
-.work-card p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:1rem}
-.work-stat-row{display:flex;gap:1rem;margin-bottom:1rem}
-.work-stat{text-align:center}
-.work-stat-num{font-family:var(--mono);font-size:1.2rem;color:var(--green);display:block}
-.work-stat-label{font-size:10px;color:var(--text3)}
-.work-expand-btn{font-size:12px;color:var(--blue);background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:0.3rem;font-family:var(--sans);position:relative;z-index:2}
-.work-expand-btn::after{content:'↓';transition:transform 0.2s;display:inline-block}
-.work-expand-btn.open::after{transform:rotate(180deg)}
-.work-detail{display:none;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border);font-size:13px;color:var(--text2);line-height:1.7;position:relative;z-index:2}
-.work-detail.visible{display:block!important}
-
-/* AB TEST */
-.ab-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:0.75rem 0}
-.ab-col{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:0.75rem}
-.ab-col.winner{border-color:var(--green);background:rgba(34,197,94,0.06)}
-.ab-label{font-family:var(--mono);font-size:10px;color:var(--text3);margin-bottom:0.3rem}
-.ab-col.winner .ab-label{color:var(--green)}
-.ab-val{font-size:1.3rem;font-family:var(--mono);color:var(--text)}
-.ab-desc{font-size:11px;color:var(--text3);margin-top:0.2rem}
-
-/* ICP TABLE */
-.icp-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:0.75rem 0}
-.icp-table th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--text3);padding:0.5rem;border-bottom:1px solid var(--border)}
-.icp-table td{padding:0.5rem;color:var(--text2);border-bottom:1px solid var(--border)}
-.icp-table tr:last-child td{border-bottom:none}
-.icp-table td:first-child{color:var(--text);font-weight:500}
-
-/* BEYOND SECTION */
-.beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.beyond-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.beyond-card-header{background:var(--bg3);padding:1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.75rem}
-.beyond-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.beyond-card-icon.green{background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.25)}
-.beyond-card-icon.blue{background:rgba(79,142,247,0.15);border:1px solid rgba(79,142,247,0.25)}
-.beyond-card-title{font-size:13px;font-weight:500;color:var(--text)}
-.beyond-card-sub{font-size:11px;color:var(--text3);margin-top:1px;font-family:var(--mono)}
-.beyond-body{padding:1.25rem}
-.beyond-body p{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:1rem}
-.pill-row{display:flex;flex-wrap:wrap;gap:0.4rem}
-.pill{font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:0.2rem 0.6rem;border-radius:20px}
+#hero{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule);overflow:hidden;min-height:480px}
+.hero-l{padding:3rem;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--rule)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4.5rem,7.5vw,8.5rem);line-height:.88;letter-spacing:.02em}
+h1 span{color:var(--accent)}
+.hero-sub{font-family:'DM Serif Display',serif;font-style:italic;font-size:clamp(1.2rem,1.8vw,1.8rem);color:var(--muted);margin-top:.6rem}
+.hero-bot{display:flex;flex-direction:column;align-items:flex-start;gap:.9rem}
+.hero-tagline{font-size:.95rem;line-height:1.75;color:var(--slate);max-width:48ch}
+.cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--ink);color:var(--paper);padding:.8rem 1.8rem;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;white-space:nowrap}
+.cta:hover{background:var(--accent)}
+.cta svg{width:12px;height:12px}
+.hero-r{background:var(--dark);display:flex;align-items:stretch;position:relative;overflow:hidden}
+.hero-r::before{display:none}
+.hero-r-pattern{position:absolute;inset:0;pointer-events:none;opacity:.18}
+.sg{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.07);width:100%;flex:1}
+.sb{background:var(--dark);padding:1.2rem 1.6rem;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.sbn{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;line-height:.85;color:var(--accent-light);display:block;white-space:nowrap}
+.sbl{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(237,234,246,.45);margin-top:.4rem;display:block}
 
 /* EXPERIENCE */
-.exp-list{display:flex;flex-direction:column;gap:0}
-.exp-item{padding:1.75rem 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:160px 1fr;gap:2rem}
-.exp-item:last-child{border-bottom:none}
-.exp-left{text-align:right}
-.exp-dates{font-family:var(--mono);font-size:11px;color:var(--text3);line-height:1.5}
-.exp-right{}
-.exp-co{font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px}
-.exp-role{font-size:13px;color:var(--blue);margin-bottom:0.75rem;font-family:var(--mono)}
-.exp-desc{font-size:13.5px;color:var(--text2);line-height:1.75;margin-bottom:0.75rem}
-.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
-.exp-tag{font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:0.2rem 0.6rem;border-radius:4px}
+.exp-grid{display:grid;grid-template-columns:150px 1fr;padding:2.5rem 3rem;gap:2.5rem}
+.exp-date{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--muted);line-height:1.9}
+.exp-role{font-weight:700;font-size:1.3rem;margin-bottom:.2rem}
+.exp-co{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:var(--accent);margin-bottom:.75rem}
+.exp-desc{font-size:.95rem;line-height:1.8;color:var(--slate);max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.85rem}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;background:var(--cream);padding:.2rem .5rem;color:var(--muted)}
+
+/* CASE STUDY */
+.cg{display:grid;grid-template-columns:55% 45%}
+.case-l{padding:2.5rem 3rem;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:1.5rem}
+.cbadge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:white;padding:.2rem .6rem;margin-bottom:.35rem}
+.cyear{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--muted);margin-bottom:.9rem}
+.ctitle{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,2.8vw,2.8rem);line-height:1.05;margin-bottom:.5rem}
+.csub{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;color:var(--muted);margin-bottom:.85rem}
+.cbody{font-size:.92rem;line-height:1.82;color:var(--slate)}
+.cr{background:var(--cream);padding:2rem;display:flex;flex-direction:column;gap:1rem}
+.metric{display:flex;gap:.9rem;align-items:flex-start;padding:.85rem 0;border-bottom:1px solid var(--rule)}
+.metric:last-child{border-bottom:none;padding-bottom:0}
+.mn{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--accent);min-width:1.8rem;line-height:1;flex-shrink:0}
+.ml{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+.mv{font-weight:600;font-size:.9rem;line-height:1.5}
+
+/* WORK SAMPLES */
+.wsg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)}
+.wsc{background:var(--paper);display:flex;flex-direction:column}
+.ws-thumb{width:100%;aspect-ratio:16/9;border-bottom:1px solid var(--rule);overflow:hidden;cursor:pointer;position:relative}
+.ws-thumb:hover .ws-hover-label{opacity:1}
+.ws-hover-label{position:absolute;inset:0;background:rgba(101,51,255,.75);display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:white;opacity:0;transition:opacity .2s}
+.ws-body{padding:1.75rem;flex:1;display:flex;flex-direction:column}
+.wsn{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;line-height:1;color:var(--rule);margin-bottom:.5rem;transition:color .2s}
+.wsc:hover .wsn{color:var(--accent-light)}
+.wst{font-weight:700;font-size:1.05rem;margin-bottom:.35rem}
+.wsd{font-size:.88rem;line-height:1.65;color:var(--muted);margin-bottom:.7rem;flex:1}
+.wstype{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(7,9,42,.88);z-index:500;overflow-y:auto;padding:3rem 2rem;align-items:flex-start;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--paper);max-width:940px;width:100%;position:relative;margin:auto}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2.5rem;border-bottom:1px solid var(--rule)}
+.modal-title{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.modal-title::before{content:'';width:14px;height:1px;background:var(--accent)}
+.modal-close{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:none;border:1px solid var(--rule);padding:.35rem .8rem;cursor:pointer;color:var(--muted);transition:all .2s}
+.modal-close:hover{border-color:var(--accent);color:var(--accent)}
+.modal-body{padding:2rem 2.5rem}
+
+/* BATTLECARD IN MODAL */
+.bc-pills{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.bc-pill-tc{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.06em;background:rgba(101,51,255,.15);color:var(--accent);padding:.25rem .7rem;border-radius:99px;font-weight:600}
+.bc-pill-vs{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.bc-pill-th{font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.06em;background:var(--cream);color:var(--muted);padding:.25rem .7rem;border-radius:99px;font-weight:600}
+.bc-tabs{display:flex;border-bottom:1px solid var(--rule);overflow-x:auto;margin-bottom:0;scrollbar-width:none}
+.bc-tabs::-webkit-scrollbar{display:none}
+.bc-tab{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;padding:.75rem 1.1rem;cursor:pointer;color:var(--muted);border:none;border-bottom:2px solid transparent;background:none;white-space:nowrap;transition:color .15s,border-color .15s}
+.bc-tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+.bc-panel{display:none;padding-top:1.4rem}
+.bc-panel.active{display:block}
+.bc-summary{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.2rem}
+.bc-summ{background:var(--cream);padding:1rem 1.2rem}
+.bc-summ-head{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.3rem}
+.bc-summ-tc .bc-summ-head{color:var(--accent)}
+.bc-summ-th .bc-summ-head{color:var(--muted)}
+.bc-stat{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;line-height:1;margin-bottom:.2rem}
+.bc-sub{font-size:.8rem;color:var(--muted);line-height:1.5}
+.bc-section-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+.bc-win-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin-bottom:1.2rem}
+.bc-win{background:var(--cream);padding:1rem 1.1rem}
+.bc-win-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem}
+.bc-win-title{font-family:'DM Serif Display',serif;font-size:.95rem;margin-bottom:.25rem}
+.bc-win-body{font-size:.78rem;line-height:1.6;color:var(--slate)}
+.bc-mines{display:flex;flex-direction:column;gap:.5rem}
+.bc-mine{background:var(--dark);padding:.85rem 1.1rem}
+.bc-mine-label{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.3rem}
+.bc-mine-text{font-size:.82rem;color:rgba(237,234,246,.8);line-height:1.5}
+.bc-feat{width:100%;border-collapse:collapse;font-size:.82rem}
+.bc-feat th{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:.6rem 1rem;border-bottom:2px solid var(--ink);background:var(--cream);text-align:left}
+.bc-feat th:not(:first-child){text-align:center}
+.bc-feat td{padding:.7rem 1rem;border-bottom:1px solid var(--rule);color:var(--slate);vertical-align:middle}
+.bc-feat td:first-child{color:var(--ink);font-weight:500}
+.bc-feat td:not(:first-child){text-align:center}
+.bc-feat tr:hover td{background:var(--cream)}
+.chk{color:#186844;font-weight:700}
+.cross{color:#8B1A1A;font-weight:700}
+.partial{font-size:.72rem;color:#7A4100;font-weight:500}
+.fn{font-size:.64rem;color:var(--muted);display:block;margin-top:1px}
+.bc-str-list{display:flex;flex-direction:column;gap:.5rem}
+.bc-str{display:flex;gap:.9rem;padding:1rem 1.2rem;background:var(--cream)}
+.bc-str-dot{width:5px;height:5px;border-radius:50%;background:var(--muted);margin-top:6px;flex-shrink:0}
+.bc-str-title{font-size:.88rem;font-weight:700;margin-bottom:.25rem}
+.bc-str-counter{font-size:.8rem;color:var(--slate);line-height:1.6}
+.bc-obj-item{border:1px solid var(--rule);margin-bottom:.5rem;background:var(--paper);overflow:hidden}
+.bc-obj-q{width:100%;text-align:left;padding:1rem 1.2rem;cursor:pointer;font-size:.88rem;font-weight:500;color:var(--ink);background:none;border:none;font-family:'Syne',sans-serif;display:flex;justify-content:space-between;align-items:center;gap:.75rem}
+.bc-obj-q:hover{background:var(--cream)}
+.bc-chevron{font-style:normal;font-size:.9rem;color:var(--muted);transition:transform .2s;flex-shrink:0}
+.bc-obj-item.open .bc-chevron{transform:rotate(90deg)}
+.bc-obj-item.open .bc-obj-q{border-bottom:1px solid var(--rule)}
+.bc-obj-body{display:none;padding:1rem 1.2rem}
+.bc-obj-item.open .bc-obj-body{display:block}
+.bc-tag{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;margin-bottom:.7rem;display:inline-block}
+.bc-tag-flip{background:rgba(24,104,68,.12);color:#186844}
+.bc-tag-ack{background:rgba(122,65,0,.1);color:#7A4100}
+.bc-tag-trap{background:rgba(139,26,26,.1);color:#8B1A1A}
+.bc-obj-text{font-size:.82rem;color:var(--slate);line-height:1.65}
+.bc-snip{background:var(--cream);border-left:3px solid var(--accent);padding:.65rem 1rem;font-size:.78rem;color:var(--muted);margin-top:.75rem;font-style:italic;line-height:1.55}
+.bc-dq-list{display:flex;flex-direction:column;gap:.5rem;list-style:none}
+.bc-dq{display:flex;gap:1rem;align-items:flex-start;padding:1rem 1.2rem;background:var(--cream)}
+.bc-dq-num{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--accent);min-width:22px;margin-top:2px;font-weight:600}
+.bc-dq-q{font-size:.88rem;font-weight:600;margin-bottom:.25rem}
+.bc-dq-why{font-size:.78rem;color:var(--slate);line-height:1.55}
+
+/* ICP MODAL */
+.icp-phase-label{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:.3rem;margin-bottom:1rem;margin-top:1.4rem}
+.icp-phase-label:first-child{margin-top:0}
+.icp-methods{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1.2rem}
+.icp-method{background:var(--dark);padding:.9rem 1.1rem}
+.icp-method-head{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.3rem}
+.icp-method-body{font-size:.78rem;color:rgba(237,234,246,.72);line-height:1.55}
+.icp-personas{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1.2rem}
+.icp-persona{background:var(--cream);padding:1rem 1.1rem}
+.icp-persona-icon{font-size:1.3rem;margin-bottom:.35rem}
+.icp-persona-name{font-family:'DM Serif Display',serif;font-size:.95rem;margin-bottom:.25rem}
+.icp-persona-desc{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--muted);line-height:1.55}
+.icp-msg-table{width:100%;border-collapse:collapse;font-size:.82rem;margin-bottom:1.4rem}
+.icp-msg-table th{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:.55rem .9rem;border-bottom:2px solid var(--ink);background:var(--cream);text-align:left}
+.icp-msg-table td{padding:.7rem .9rem;border-bottom:1px solid var(--rule);color:var(--slate);vertical-align:top;line-height:1.5}
+.icp-msg-table td:first-child{color:var(--muted);font-style:italic;font-size:.78rem}
+.icp-msg-table td:nth-child(3){font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--accent);font-weight:500}
+.icp-msg-table tr:hover td{background:var(--cream)}
+.icp-v-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.icp-v-table th{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);padding:.55rem .9rem;border-bottom:2px solid var(--ink);background:var(--cream);text-align:left}
+.icp-v-table td{padding:.75rem .9rem;border-bottom:1px solid var(--rule);color:var(--slate);vertical-align:top;line-height:1.5}
+.icp-v-table td:first-child{font-weight:700;color:var(--ink)}
+.icp-v-table tr:hover td{background:var(--cream)}
+.icp-learn{background:var(--dark);padding:1.2rem 1.5rem;margin-top:1.2rem}
+.icp-learn-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.5rem}
+.icp-learn-text{font-size:.85rem;color:rgba(237,234,246,.75);line-height:1.75}
+
+/* GTM MODAL */
+.gtm-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);margin-bottom:1.5rem}
+.gtm-metric{background:var(--dark);padding:1.3rem 1.5rem}
+.gtm-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--accent-light);line-height:1;margin-bottom:.15rem}
+.gtm-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:rgba(237,234,246,.45)}
+.gtm-2col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.4rem}
+.gtm-col-head{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.gtm-pain{padding:.65rem 0;border-bottom:1px solid var(--rule);font-size:.82rem}
+.gtm-pain:last-child{border-bottom:none}
+.gtm-pain-from{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:.2rem}
+.gtm-pain-to{color:var(--ink);font-weight:500}
+.gtm-seq{display:flex;gap:.9rem;align-items:flex-start;padding:.65rem 0;border-bottom:1px solid var(--rule)}
+.gtm-seq:last-child{border-bottom:none}
+.gtm-seq-phase{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--accent);min-width:75px;margin-top:2px;font-weight:500}
+.gtm-seq-desc{font-size:.82rem;color:var(--slate);line-height:1.55}
+.gtm-outcome{background:var(--dark);padding:1.2rem 1.5rem}
+.gtm-outcome-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:.5rem}
+.gtm-outcome-text{font-size:.85rem;color:rgba(237,234,246,.75);line-height:1.75}
+.gtm-body{font-size:.88rem;line-height:1.8;color:var(--slate);margin-bottom:1.4rem}
+
+/* TOOL SECTION */
+.tool-section-inner{background:var(--dark);color:var(--paper);padding:3rem;display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:start}
+.tool-title{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--accent-light);margin-bottom:.65rem}
+.tool-body{font-size:.92rem;line-height:1.8;color:rgba(237,234,246,.72);margin-bottom:1.2rem}
+.tool-stack{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.tool-stack-item{display:flex;align-items:center;gap:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:rgba(237,234,246,.5)}
+.tool-stack-item::before{content:'';width:6px;height:1px;background:var(--accent-light)}
 
 /* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.skill-group{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.25rem}
-.skill-group-label{font-family:var(--mono);font-size:10px;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
-.skill-items{display:flex;flex-wrap:wrap;gap:0.4rem}
-.skill-item{font-size:12px;color:var(--text2);background:var(--bg3);border:1px solid var(--border);padding:0.25rem 0.6rem;border-radius:4px}
+.skc{display:grid;grid-template-columns:1fr 1fr}
+.skcol{padding:2.5rem 3rem;border-right:1px solid var(--rule)}
+.skcol:last-child{border-right:none}
+.skgrp{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+.skrow{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.skname{font-size:.95rem;font-weight:500}
+.bw{width:110px;height:3px;background:var(--rule)}
+.bar{height:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:grow 1.2s ease forwards}
+@keyframes grow{to{transform:scaleX(1)}}
 
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--mono);font-size:12px;color:var(--text3)}
-footer a{color:var(--blue);text-decoration:none}
+/* FADE IN */
+.fi{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.fi.show{opacity:1;transform:none}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
-.reveal.visible{opacity:1;transform:none}
+/* CI TRACKER */
+#ci-shell *{box-sizing:border-box}
+.ci-wrap{background:#fff;color:#1a1a1a;font-family:'Syne',system-ui,sans-serif;font-size:14px;border:1px solid rgba(255,255,255,.08)}
+.ci-hdr{background:#07092A;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.ci-hdr-title{font-size:13px;font-weight:700;color:#EDEAF6;font-family:'Syne',sans-serif}
+.ci-hdr-sub{font-size:10px;color:rgba(184,164,255,.5);letter-spacing:.07em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace}
+.ci-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:12px 16px 0}
+.ci-stat{background:#f9f9fb;border:1px solid #e5e4f0;border-radius:8px;padding:8px 10px}
+.ci-stat-n{font-size:18px;font-weight:700;font-family:'Bebas Neue',sans-serif}
+.ci-stat-l{font-size:10px;color:#888;margin-top:1px;font-family:'IBM Plex Mono',monospace}
+.ci-tabs-wrap{padding:0 16px}
+.ci-tabs{display:flex;border-bottom:1px solid #e5e4f0;overflow-x:auto}
+.ci-tab{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;padding:9px 13px;cursor:pointer;color:#888;border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap;transition:all .15s;letter-spacing:.04em;text-transform:uppercase}
+.ci-tab.active{color:#6533FF;border-bottom-color:#6533FF}
+.ci-body{padding:14px 16px}
+.ci-card{background:#fff;border:1px solid #e5e4f0;border-radius:10px;padding:13px;margin-bottom:8px}
+.ci-btn{padding:7px 13px;border-radius:7px;font-size:12px;cursor:pointer;font-family:'Syne',inherit;border:1px solid #d1d5db;background:#fff;color:#1a1a1a;transition:all .15s}
+.ci-btn.primary{background:#6533FF;color:#fff;border-color:#6533FF}
+.ci-btn.primary:hover{background:#4f22e0}
+.ci-btn.primary:disabled{background:#ccc;cursor:not-allowed}
+.ci-btn.ghost{background:transparent;border-color:transparent;color:#888}
+.ci-btn.sm{padding:4px 9px;font-size:11px}
+.ci-btn.danger{color:#8B1A1A;border-color:#f5a5a5}
+.ci-label{font-size:11px;font-weight:600;color:#666;margin-bottom:4px;letter-spacing:.04em;text-transform:uppercase;font-family:'IBM Plex Mono',monospace}
+.ci-textarea{width:100%;padding:8px 10px;border:1px dashed #d1d5db;border-radius:7px;font-size:12px;background:#f9f9fb;color:#1a1a1a;font-family:inherit;resize:vertical;line-height:1.6}
+.ci-pbox{display:flex;align-items:center;gap:8px;font-size:12px;color:#888;padding:10px 12px;background:#f9f9fb;border-radius:8px;margin-top:8px;border:1px solid #e5e4f0}
+.ci-spinner{width:12px;height:12px;border:2px solid #e5e4f0;border-top-color:#6533FF;border-radius:50%;animation:cispin .7s linear infinite;flex-shrink:0}
+@keyframes cispin{to{transform:rotate(360deg)}}
+.ci-err{background:#fce8e8;color:#8B1A1A;padding:8px 12px;border-radius:8px;font-size:11px;margin-top:6px}
+.ci-badge{display:inline-flex;align-items:center;padding:2px 6px;border-radius:999px;font-size:10px;font-weight:600;white-space:nowrap;font-family:'IBM Plex Mono',monospace}
+.bprice{background:#fce8f5;color:#8B1A6B}
+.blang{background:#EDE3FF;color:#5B21B6}
+.bproduct{background:#E6F1FB;color:#185FA5}
+.bcampaign{background:#FAEEDA;color:#854F0B}
+.bhiring{background:#EAF3DE;color:#3B6D11}
+.bnoise{background:#f3f4f6;color:#4b5563}
+.bother{background:#f3f4f6;color:#4b5563}
+.ci-act-block{border-radius:7px;padding:9px 11px;margin-top:7px;font-size:12px}
+.act-do{background:#f0fdf4;border:1px solid #bbf7d0;color:#14532d}
+.act-watch{background:#fffbeb;border:1px solid #fde68a;color:#78350f}
+.act-fyi{background:#f9f9fb;border:1px solid #e5e4f0;color:#4b5563}
+.ci-act-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;font-family:'IBM Plex Mono',monospace}
+.ci-entry-grid{display:grid;grid-template-columns:72px 100px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid #f3f4f6}
+.ci-entry-grid:last-child{border-bottom:none}
+.ci-col-hdr{font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;font-family:'IBM Plex Mono',monospace}
+.ci-hyp-card{background:#fff;border:1px solid #e5e4f0;border-radius:10px;padding:13px;margin-bottom:8px}
+.ci-conf-wrap{height:4px;background:#f3f4f6;border-radius:2px;margin:6px 0 10px}
+.ci-conf-bar{height:4px;border-radius:2px}
+.ci-signal-pill{display:inline-flex;align-items:center;gap:3px;background:#f3f4f6;border:1px solid #e5e4f0;border-radius:999px;padding:2px 6px;font-size:10px;color:#4b5563;font-family:'IBM Plex Mono',monospace}
+.ci-filt{padding:3px 8px;border-radius:999px;font-size:11px;cursor:pointer;border:1px solid #e5e4f0;background:#fff;color:#666;font-family:'IBM Plex Mono',monospace}
+.ci-filt.active{background:#6533FF;color:#fff;border-color:#6533FF}
+.ci-empty{text-align:center;padding:2rem 1rem;color:#888;font-size:12px}
+.ci-hyp-act{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 12px;margin-top:9px}
+.ci-hyp-act-label{font-size:9px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:.07em;margin-bottom:5px;font-family:'IBM Plex Mono',monospace}
+.ci-hyp-act-item{font-size:11px;color:#14532d;padding:2px 0;display:flex;gap:5px;line-height:1.5;align-items:flex-start}
+.ci-team{display:inline-flex;align-items:center;gap:2px;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;flex-shrink:0;font-family:'IBM Plex Mono',monospace}
+.team-pmm{background:#EDE3FF;color:#5B21B6}
+.team-prod{background:#E6F1FB;color:#185FA5}
+.team-sales{background:#FAEEDA;color:#854F0B}
+.team-lead{background:#fce8e8;color:#8B1A1A}
+@media(max-width:560px){.ci-stats{grid-template-columns:1fr 1fr}}
 
-/* SCROLL PROGRESS */
-.scroll-progress{position:fixed;top:0;left:0;height:2px;background:var(--blue2);z-index:2000;transition:width 0.1s linear}
-
-@media(max-width:700px){
-  .metrics-bar{grid-template-columns:repeat(3,1fr)}
-  .beyond-grid,.work-grid,.skills-grid{grid-template-columns:1fr}
-  .cs-tabs{flex-direction:column}
-  .cs-tab{border-right:none;border-bottom:1px solid var(--border)}
-  .cs-card-header{flex-direction:column}
-  .cs-impact{flex-direction:row;flex-wrap:wrap}
-  .exp-item{grid-template-columns:1fr;gap:0.5rem}
-  .exp-left{text-align:left}
-  .workflow-canvas{min-width:600px}
-  nav{padding:0 1rem}
-  .nav-links a{padding:0.4rem 0.6rem}
+/* RESPONSIVE */
+@media(max-width:900px){
+  header{padding:.85rem 1.5rem}
+  .sh{padding:.65rem 1.5rem}
+  #hero{grid-template-columns:1fr}
+  .hero-l{padding:2rem 1.5rem;border-right:none;border-bottom:1px solid var(--rule)}
+  /* Stats: horizontal scroll strip instead of hiding */
+  .hero-r{display:block;min-height:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .hero-r::before{display:none}
+  .sg{display:flex;flex-direction:row;width:max-content;min-width:100%;gap:0;background:transparent}
+  .sb{min-width:150px;padding:1.2rem 1.5rem;border-right:1px solid rgba(255,255,255,.08);flex-shrink:0}
+  .sb:last-child{border-right:none}
+  .sbn{font-size:2rem}
+  .exp-grid{grid-template-columns:1fr;padding:1.5rem;gap:.6rem}
+  .exp-date{font-size:.72rem}
+  .cg{grid-template-columns:1fr}
+  .cr{display:none}
+  .case-l{padding:1.5rem}
+  .wsg{grid-template-columns:1fr 1fr}
+  .tool-section-inner{grid-template-columns:1fr;padding:2rem 1.5rem;gap:1.5rem}
+  .skc{grid-template-columns:1fr}
+  .skcol{padding:1.5rem;border-right:none;border-bottom:1px solid var(--rule)}
+  .skcol:last-child{border-bottom:none}
+  .bc-summary{grid-template-columns:1fr}
+  .bc-win-grid{grid-template-columns:1fr 1fr}
+  .icp-methods{grid-template-columns:1fr 1fr}
+  .icp-personas{grid-template-columns:1fr 1fr}
+  .gtm-metrics{grid-template-columns:1fr 1fr}
+  .gtm-2col{grid-template-columns:1fr}
+  .modal-body{padding:1.5rem}
+  .modal-hdr{padding:1.1rem 1.5rem}
+  .modal-box{margin:.5rem auto}
+}
+@media(max-width:600px){
+  header{padding:.75rem 1rem}
+  nav{gap:.9rem}
+  nav button{font-size:.6rem}
+  h1{font-size:clamp(3.2rem,15vw,5rem)}
+  .hero-l{padding:1.5rem 1rem}
+  .cta{padding:.7rem 1.2rem;font-size:.64rem}
+  .sh{padding:.6rem 1rem}
+  .wsg{grid-template-columns:1fr}
+  .bc-win-grid{grid-template-columns:1fr}
+  .icp-methods{grid-template-columns:1fr}
+  .icp-personas{grid-template-columns:1fr 1fr}
+  .gtm-metrics{grid-template-columns:1fr 1fr}
+  .modal-overlay{padding:.5rem}
+  .modal-hdr{padding:.9rem 1rem;flex-direction:column;align-items:flex-start;gap:.5rem}
+  .modal-body{padding:1rem}
+  .exp-grid{padding:1.2rem 1rem}
+  .case-l{padding:1.2rem 1rem}
+  .tool-section-inner{padding:1.5rem 1rem}
+  .skcol{padding:1.2rem 1rem}
+  .bc-feat{font-size:.75rem}
+  .bc-feat th,.bc-feat td{padding:.5rem .6rem}
+  .icp-v-table,.icp-msg-table{font-size:.75rem}
+  .tool-stack-item{font-size:.64rem}
+  .ws-body{padding:1.2rem}
 }
 </style>
 </head>
 <body>
 
-<div class="scroll-progress" id="scroll-progress"></div>
+<div class="cur" id="cur"></div>
+<div class="cur-t" id="curT"></div>
 
-<!-- NAV -->
-<nav>
-  <a href="#top" class="nav-logo">sakthi<span>.pmm</span></a>
-  <ul class="nav-links" style="list-style:none">
-    <li><a href="#case-studies">Case Studies</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#beyond">Beyond</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-  </ul>
-</nav>
+<header>
+  <div class="logo">SAKTHI RAMKUMAR · PMM</div>
+  <nav>
+    <button onclick="goTo('ci-section')">CI Tracker</button>
+    <button onclick="goTo('experience')">Experience</button>
+    <button onclick="goTo('case-study')">Case Studies</button>
+    <button onclick="goTo('work-samples')">Work</button>
+    <button onclick="goTo('skills')">Skills</button>
+  </nav>
+</header>
 
 <!-- HERO -->
-<div id="top" style="max-width:960px;margin:0 auto">
-<div class="hero">
-  <div class="hero-tag">Available for senior PMM roles · B2B fintech &amp; payments</div>
-  <h1>Sakthi Ramkumar S</h1>
-  <div class="hero-typewriter" id="typewriter"><span class="cursor"></span></div>
-  <p class="hero-desc">
-    5+ years as Founding PMM for TrainerCentral (Zoho Corp.) — built the entire GTM function from zero across India, the U.S., and Singapore. I own value proposition development, competitive intelligence, channel strategy, PR, and pricing — and hold every decision accountable to adoption, funnel, and revenue metrics.
-  </p>
-  <div class="hero-fintech-tag">
-    ✦ Comfortable in the fintech &amp; payments ecosystem — familiar with merchant acquiring, how businesses evaluate payment solutions on cost, settlement speed, integration, and reliability vs. Stripe, Adyen &amp; SumUp
+<div id="hero">
+  <div class="hero-l fi">
+    <div>
+      <div class="eyebrow">Pricing &amp; Monetization · AI-Powered GTM · B2B SaaS</div>
+      <h1>SAKTHI<br>RAMKUMAR<span>.</span></h1>
+      <p class="hero-sub">Pricing-led. AI-fluent. Builder at heart.</p>
+    </div>
+    <div class="hero-bot">
+      <p class="hero-tagline">5+ years as the founding Product Marketer for a B2B SaaS LMS at Zoho — architecting multi-tier pricing and enterprise packaging from scratch, owning messaging and enablement for AI feature launches end to end, and building a production-grade competitive intelligence engine on the Claude API. Comfortable going deep on monetization mechanics, not just the messaging around them.</p>
+      <button class="cta" onclick="goTo('case-study')">View Case Studies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>
+    </div>
   </div>
-  <div class="hero-actions">
-    <a href="#case-studies" class="btn-primary">View Case Studies →</a>
-    <a href="mailto:ramkr_31@outlook.com" class="btn-ghost">Get in Touch</a>
+  <div class="hero-r fi">
+    <svg class="hero-r-pattern" viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+      <defs>
+        <pattern id="dots" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="#B8A4FF"/>
+        </pattern>
+        <pattern id="grid" x="0" y="0" width="56" height="56" patternUnits="userSpaceOnUse">
+          <rect width="56" height="56" fill="url(#dots)"/>
+          <line x1="0" y1="0" x2="56" y2="0" stroke="#6533FF" stroke-width=".3" opacity=".4"/>
+          <line x1="0" y1="0" x2="0" y2="56" stroke="#6533FF" stroke-width=".3" opacity=".4"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="480" fill="url(#grid)"/>
+      <circle cx="200" cy="240" r="120" fill="none" stroke="#B8A4FF" stroke-width=".6" opacity=".3"/>
+      <circle cx="200" cy="240" r="80" fill="none" stroke="#B8A4FF" stroke-width=".4" opacity=".2"/>
+      <circle cx="200" cy="240" r="40" fill="none" stroke="#6533FF" stroke-width=".8" opacity=".3"/>
+      <line x1="80" y1="240" x2="320" y2="240" stroke="#6533FF" stroke-width=".4" opacity=".25"/>
+      <line x1="200" y1="120" x2="200" y2="360" stroke="#6533FF" stroke-width=".4" opacity=".25"/>
+    </svg>
+    <div class="sg">
+      <div class="sb"><span class="sbn">18%</span><span class="sbl">Revenue Lift · Lifecycle &amp; Conversion</span></div>
+      <div class="sb"><span class="sbn">11→5%</span><span class="sbl">Paid Churn Reduction</span></div>
+      <div class="sb"><span class="sbn">20%</span><span class="sbl">Enterprise Win Rate Lift</span></div>
+      <div class="sb"><span class="sbn">45%</span><span class="sbl">MQL→SQL Conversion Lift</span></div>
+      <div class="sb"><span class="sbn">1K+</span><span class="sbl">Signups · Year 1 Launch</span></div>
+      <div class="sb"><span class="sbn">43%</span><span class="sbl">Inbound Traffic via Content</span></div>
+    </div>
   </div>
 </div>
 
-<!-- METRICS -->
-<div class="metrics-bar">
-  <div class="metric"><span class="metric-val count-up" data-target="0">0→1</span><div class="metric-label">GTM Launch</div></div>
-  <div class="metric"><span class="metric-val" data-target="1000">1,000+</span><div class="metric-label">Signups · Year 1</div></div>
-  <div class="metric"><span class="metric-val">11→5%</span><div class="metric-label">Churn Reduction</div></div>
-  <div class="metric"><span class="metric-val">20%</span><div class="metric-label">Enterprise Win Rate</div></div>
-  <div class="metric"><span class="metric-val">45%</span><div class="metric-label">MQL→SQL Lift</div></div>
-  <div class="metric"><span class="metric-val">18%</span><div class="metric-label">Revenue Lift</div></div>
-</div>
-</div>
+<!-- CI TRACKER -->
+<section id="ci-section">
+  <div class="sh"><div class="sl">Competitive Intelligence Tracker — AI-powered</div><div class="sn">01</div></div>
+  <div class="tool-section-inner fi">
+    <div>
+      <h3 class="tool-title">AI-powered Competitive Intelligence Tracker.</h3>
+      <p class="tool-body">A production-grade market intelligence system built using the Claude API — no vendor tool, no off-the-shelf solution. Competitor pages are monitored for changes via VisualPing and Distill.io, routed alongside Google Alerts and Feedly signals into a structured log. Claude analyses each signal, classifies it by theme and urgency, detects patterns across weeks, and surfaces actionable recommendations — keeping campaign messaging and positioning current without manual research cycles. Built and maintained end to end, including the prompt architecture and signal classification logic, not just the dashboard on top of it.</p>
+
+    </div>
+    <div id="ci-shell"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sh"><div class="sl">Experience</div><div class="sn">02</div></div>
+  <div class="exp-grid fi">
+    <div class="exp-date">Nov 2020 → Present<br>Chennai, India<br><br>Zoho Corporation</div>
+    <div>
+      <div class="exp-role">Senior Product Marketer</div>
+      <div class="exp-co">TrainerCentral — B2B SaaS LMS &amp; Online Course Platform</div>
+      <div class="exp-desc">
+        Founding Product Marketer for TrainerCentral. Built the GTM function from 0 to 1 — pricing strategy, competitive intelligence, positioning, sales enablement, and demand gen — with no prior brand equity, no historical data, and no team. Architected a multi-tier pricing model and an enterprise packaging framework (SSO, encryption, audit trails) ahead of an upmarket repositioning.
+        <br><br>
+        Reduced paid churn from 11% to 5% and grew revenue 18% in two quarters through usage-data-led lifecycle programs and feature gating, not a pricing change. Built a production-grade competitive intelligence engine on the Claude API, and owned messaging and sales enablement end to end for AI feature launches — AI-generated course content, automated assessments, adaptive learning. Scaled India to 30% of global pipeline and replicated the playbook to launch Singapore.
+      </div>
+      <div class="tags">
+        <span class="tag">Pricing Strategy &amp; Monetization</span>
+        <span class="tag">Enterprise Packaging</span>
+        <span class="tag">AI Feature Launches</span>
+        <span class="tag">Competitive Intelligence (Claude API)</span>
+        <span class="tag">Lifecycle &amp; Retention</span>
+        <span class="tag">ICP &amp; Sales Enablement</span>
+        <span class="tag">0→1 GTM</span>
+        <span class="tag">Multi-market Expansion</span>
+      </div>
+    </div>
+  </div>
+  <div class="exp-grid fi" style="border-top:1px solid var(--rule)">
+    <div class="exp-date">Jun 2020 → Nov 2020<br>India<br><br>Freelance</div>
+    <div>
+      <div class="exp-role">Freelance Content Marketer</div>
+      <div class="exp-co">B2B SaaS Startups</div>
+      <div class="exp-desc">Delivered SEO strategy, brand messaging, and growth positioning for B2B SaaS startups — 2–3× organic traffic growth and 15–25% conversion rate improvements across clients.</div>
+      <div class="tags"><span class="tag">SEO</span><span class="tag">Content Strategy</span><span class="tag">Brand Messaging</span></div>
+    </div>
+  </div>
+</section>
 
 <!-- CASE STUDIES -->
-<section id="case-studies" class="reveal">
-  <div class="section-eyebrow">Case Studies</div>
-  <div class="section-title">Five problems. Five outcomes.</div>
+<section id="case-study">
+  <div class="sh"><div class="sl">Pricing &amp; Growth Case Studies</div><div class="sn">03</div></div>
 
-  <div class="cs-tabs">
-    <button class="cs-tab active" onclick="showCS(0,this)"><span class="tab-num">01</span>Customer Signals → Roadmap</button>
-    <button class="cs-tab" onclick="showCS(1,this)"><span class="tab-num">02</span>Pricing Architecture</button>
-    <button class="cs-tab" onclick="showCS(2,this)"><span class="tab-num">03</span>CI Tracker (AI)</button>
-    <button class="cs-tab" onclick="showCS(3,this)"><span class="tab-num">04</span>0→1 GTM Launch</button>
-    <button class="cs-tab" onclick="showCS(4,this)"><span class="tab-num">05</span>ICP Evolution</button>
-  </div>
-
-  <!-- CS 0 -->
-  <div class="cs-panel active" id="cs-0">
-    <div class="cs-card">
-      <div class="cs-card-header">
-        <div class="cs-card-left">
-          <div class="cs-tag-row">
-            <span class="tag tag-blue">Product Influence</span>
-            <span class="tag tag-green">VoC Research</span>
-            <span class="tag tag-blue">Roadmap</span>
-          </div>
-          <div class="cs-headline">From Customer Signals to Roadmap Prioritisation</div>
-          <div class="cs-sub">Aggregating signals across four data sources surfaced a product gap, built a business case, and moved a feature from backlog to beta in one quarter — restoring multi-million-dollar deal velocity.</div>
-        </div>
-        <div class="cs-impact">
-          <div class="impact-stat"><span class="impact-num">4</span><div class="impact-label">Signal Sources</div></div>
-          <div class="impact-stat"><span class="impact-num">1 Qtr</span><div class="impact-label">Backlog → Beta</div></div>
-          <div class="impact-stat"><span class="impact-num">20%</span><div class="impact-label">Enterprise Win Rate</div></div>
-        </div>
+  <!-- CASE STUDY 1: SCORM / CI -->
+  <div class="cg" style="border-bottom:1px solid var(--rule)">
+    <div class="case-l fi">
+      <div>
+        <div class="cbadge">Market Intelligence × Product Influence</div>
+        <div class="cyear">2023 · Data-Driven Decision Making</div>
+        <h2 class="ctitle">Using Customer Data to Unlock a Stalled Revenue Line</h2>
+        <p class="csub">How aggregating signals across four data sources surfaced a product gap and changed the roadmap.</p>
+        <p class="cbody">TrainerCentral's pipeline was growing but late-stage deals kept stalling — and no one had a systematic view of why. I built a signal aggregation engine pulling from four sources simultaneously: G2 and Capterra review patterns, Reddit community discussions, support ticket themes, and CRM lost-deal notes. The brief was simple: find what the data was consistently saying that no one was reading.
+        <br><br>
+        A clear pattern emerged across all four sources. Enterprise buyers — the segment we were actively trying to grow — were flagging SCORM compliance as a blocker. They needed to import existing training content built in standard authoring tools, and without SCORM support, content migration was impossible and deals couldn't progress. Every major competitor had it. The signal was strong enough across sources to quantify: multiple six-figure opportunities were stalled or lost against this single gap.
+        <br><br>
+        I compiled the findings into a business case: competitive analysis, cross-source signal volume, blocked pipeline estimate, and a phased rollout proposal. Presented it to the product team. SCORM was prioritised within one quarter and is now in beta — deployed first to the accounts that had flagged it directly.</p>
       </div>
-      <div class="cs-body">
-        <p class="cs-body-text">TrainerCentral's pipeline was growing but late-stage enterprise deals kept stalling. No one had a systematic view of why. I built a signal aggregation engine pulling from four sources simultaneously, cross-referencing patterns to find the consistent blocker.</p>
-        <div class="cs-steps">
-          <div class="cs-step"><div class="step-num">01 · SIGNAL</div><div class="step-title">G2 &amp; Capterra Reviews</div><div class="step-desc">Mined recurring themes in 1-star reviews and competitor comparisons</div></div>
-          <div class="cs-step"><div class="step-num">02 · SIGNAL</div><div class="step-title">Reddit Communities</div><div class="step-desc">Monitored L&amp;D forums for unfiltered frustration and competitor switching signals</div></div>
-          <div class="cs-step"><div class="step-num">03 · SIGNAL</div><div class="step-title">Support Ticket Themes</div><div class="step-desc">Analysed ticket volume and escalation patterns for product gap signals</div></div>
-          <div class="cs-step"><div class="step-num">04 · SIGNAL</div><div class="step-title">CRM Lost-Deal Notes</div><div class="step-desc">Structured analysis of why deals were marked lost across 6 months</div></div>
-        </div>
-        <p class="cs-body-text">A clear pattern emerged: SCORM compliance was the consistent blocker across all four sources. Enterprise buyers couldn't migrate content from existing authoring tools without it. Every major competitor had it. I compiled a business case — competitive analysis, cross-source signal volume, blocked pipeline estimate — and presented it to the product team. SCORM was prioritised within one quarter and shipped to beta, deployed first to accounts that had flagged it directly.</p>
-        <div class="transfer-note">
-          <div class="transfer-note-label">→ Why this transfers to payments</div>
-          <p>The same signal aggregation method applies directly to merchant acquiring — where product gaps (missing payment methods, slow settlement, poor reconciliation UX) are often the real deal-killers that never surface in structured win/loss calls. Method, not domain, is the skill.</p>
-        </div>
+      <div class="tags">
+        <span class="tag">4-Source Data Analysis</span>
+        <span class="tag">Customer Feedback Synthesis</span>
+        <span class="tag">Business Case Development</span>
+        <span class="tag">Roadmap Influence</span>
       </div>
+    </div>
+    <div class="cr fi">
+      <div class="metric"><div class="mn">01</div><div><div class="ml">Method</div><div class="mv">4-source aggregation — G2, Capterra, support tickets, CRM lost-deal notes analysed in parallel</div></div></div>
+      <div class="metric"><div class="mn">02</div><div><div class="ml">Insight</div><div class="mv">Single product gap (SCORM) identified as the consistent signal across all four data sources</div></div></div>
+      <div class="metric"><div class="mn">03</div><div><div class="ml">Business Case</div><div class="mv">Competitive analysis + signal volume + blocked pipeline value — presented to Product leadership</div></div></div>
+      <div class="metric"><div class="mn">04</div><div><div class="ml">Outcome</div><div class="mv">Feature prioritised and shipped to beta in one quarter. Deployed first to flagged accounts.</div></div></div>
     </div>
   </div>
 
-  <!-- CS 1 -->
-  <div class="cs-panel" id="cs-1">
-    <div class="cs-card">
-      <div class="cs-card-header">
-        <div class="cs-card-left">
-          <div class="cs-tag-row">
-            <span class="tag tag-amber">Pricing Strategy</span>
-            <span class="tag tag-green">Revenue</span>
-            <span class="tag tag-blue">Research</span>
-          </div>
-          <div class="cs-headline">Pricing Architecture Through Cohort Testing and Customer Research</div>
-          <div class="cs-sub">Rebuilt a flat pricing model into a tiered architecture through willingness-to-pay research and cohort testing — delivering 18% revenue lift over two quarters.</div>
-        </div>
-        <div class="cs-impact">
-          <div class="impact-stat"><span class="impact-num">18%</span><div class="impact-label">Revenue Lift</div></div>
-          <div class="impact-stat"><span class="impact-num">3-Tier</span><div class="impact-label">Architecture Built</div></div>
-          <div class="impact-stat"><span class="impact-num">2 Qtrs</span><div class="impact-label">Time to Impact</div></div>
-        </div>
+  <!-- CASE STUDY 2: LIFECYCLE-LED RETENTION -->
+  <div class="cg" style="border-bottom:1px solid var(--rule)">
+    <div class="case-l fi">
+      <div>
+        <div class="cbadge">Lifecycle &amp; Monetization · Shipped &amp; Live</div>
+        <div class="cyear">2023–2024 · Usage Analytics × Feature Gating</div>
+        <h2 class="ctitle">Cutting Paid Churn in Half Without Touching the Price Tag</h2>
+        <p class="csub">11% to 5% paid churn, 18% revenue lift in two quarters — through usage signals, not a pricing change.</p>
+        <p class="cbody">Churn was concentrated in accounts that never reached a real activation moment in their first 30 days, and flat pricing meant power users and low-intent free trials looked identical on paper. Rather than wait for a pricing rebuild, I mined usage data and support ticket themes to find the specific feature-adoption gaps that predicted churn before it happened.
+        <br><br>
+        Three interventions came out of that analysis. In-product nudges pushed at-risk accounts toward the features most correlated with retention. Feature limits on the free tier converted low-intent signups into qualified trials instead of dead weight. Lifecycle email sequences were triggered by usage thresholds rather than calendar days, so the message landed when it was actually relevant.
+        <br><br>
+        Paid churn dropped from 11% to 5% and revenue grew 18% across two quarters — proof that monetization work doesn't always have to start with the price. Sometimes it starts with knowing which accounts are about to leave, and why.</p>
       </div>
-      <div class="cs-body">
-        <p class="cs-body-text">The original flat pricing had no feature caps — power users sat on entry-level plans with no natural reason to upgrade. I started with structured research: customer interviews mapping real usage, CRM usage data finding where customers were outgrowing plans, and a competitor pricing teardown.</p>
-        <div class="cs-steps">
-          <div class="cs-step"><div class="step-num">01 · RESEARCH</div><div class="step-title">Willingness-to-Pay</div><div class="step-desc">1:1 interviews and usage data to map segment value perception</div></div>
-          <div class="cs-step"><div class="step-num">02 · DESIGN</div><div class="step-title">Feature Cap Architecture</div><div class="step-desc">Designed upgrade pressure at key usage thresholds across tiers</div></div>
-          <div class="cs-step"><div class="step-num">03 · TEST</div><div class="step-title">Cohort Testing</div><div class="step-desc">Mid-tier plan tested with existing customers before full rollout</div></div>
-          <div class="cs-step"><div class="step-num">04 · LAUNCH</div><div class="step-title">Enterprise Tier</div><div class="step-desc">SSO, encryption, analytics — used in late-stage deal conversations</div></div>
-        </div>
-        <p class="cs-body-text">Revenue lifted 18% across two quarters — driven by new conversions to mid-tier and upgrade pressure on existing power users who had outgrown the entry plan. Enterprise plan became a deal-closer before public launch.</p>
-        <div class="transfer-note">
-          <div class="transfer-note-label">→ Why this transfers to payments</div>
-          <p>Pricing strategy in merchant acquiring — MDR structures, interchange-plus, flat-rate vs. tiered plans — follows the same principles: segment willingness-to-pay, competitive anchoring, and feature-gating to drive upgrade behaviour.</p>
-        </div>
+      <div class="tags">
+        <span class="tag">Usage Analytics</span>
+        <span class="tag">In-Product Nudges</span>
+        <span class="tag">Feature Gating</span>
+        <span class="tag">Lifecycle Marketing</span>
       </div>
+    </div>
+    <div class="cr fi">
+      <div class="metric"><div class="mn">01</div><div><div class="ml">Revenue Impact</div><div class="mv">18% revenue lift over 2 quarters</div></div></div>
+      <div class="metric"><div class="mn">02</div><div><div class="ml">Churn Impact</div><div class="mv">Paid churn reduced from 11% to 5%</div></div></div>
+      <div class="metric"><div class="mn">03</div><div><div class="ml">Method</div><div class="mv">Usage data + support ticket mining to flag at-risk accounts before they churned</div></div></div>
+      <div class="metric"><div class="mn">04</div><div><div class="ml">Interventions</div><div class="mv">In-product nudges, free-tier feature limits, usage-triggered lifecycle email</div></div></div>
     </div>
   </div>
 
-  <!-- CS 2: CI TRACKER WITH TERMINAL -->
-  <div class="cs-panel" id="cs-2">
-    <div class="cs-card">
-      <div class="cs-card-header">
-        <div class="cs-card-left">
-          <div class="cs-tag-row">
-            <span class="tag tag-blue">Competitive Intelligence</span>
-            <span class="tag tag-green">Claude API</span>
-            <span class="tag tag-amber">AI Workflow</span>
-          </div>
-          <div class="cs-headline">AI-Powered Competitive Intelligence Tracker</div>
-          <div class="cs-sub">A production-grade market intelligence system built on Claude API — no vendor tool, no off-the-shelf solution. Surfaces deal-blocking competitive signals and routes them directly into battlecards and sales talk tracks.</div>
-        </div>
-        <div class="cs-impact">
-          <div class="impact-stat"><span class="impact-num">6+</span><div class="impact-label">Signal Sources</div></div>
-          <div class="impact-stat"><span class="impact-num">4+</span><div class="impact-label">Competitors Tracked</div></div>
-          <div class="impact-stat"><span class="impact-num">Real-time</span><div class="impact-label">Signal Routing</div></div>
-        </div>
+  <!-- CASE STUDY 3: PRICING ARCHITECTURE (DESIGNED, PRE-LAUNCH) -->
+  <div class="cg">
+    <div class="case-l fi">
+      <div>
+        <div class="cbadge">Pricing Architecture · Designed, Pre-Launch</div>
+        <div class="cyear">2025–2026 · Multi-Tier Pricing &amp; Upmarket Packaging</div>
+        <h2 class="ctitle">Architecting a Multi-Tier Pricing Model for an Upmarket Shift</h2>
+        <p class="csub">Feature-gated tiers, usage-based add-on pricing, and an enterprise framework — designed and cohort-validated ahead of rollout.</p>
+        <p class="cbody">Flat pricing didn't reflect how differently a solo trainer and a 200-person training company use the product, and it gave enterprise buyers nothing to point to on SSO, encryption, or audit trails when security review came up. I designed a multi-tier structure — feature-gated Starter and Professional plans, with packaging boundaries set by where usage data showed the steepest jump in feature dependence — and cohort-tested a new mid-tier with existing customers to validate willingness to pay before committing to final caps.
+        <br><br>
+        Where consumption is genuinely variable and visible to the buyer — live workshop attendance — I priced it usage-based by attendee volume rather than folding it into a flat tier, so cost scales with the value a customer actually pulls from that feature. The core platform stayed flat-fee, since predictability matters more than precision for SMB and mid-market buyers comparing tools on a spreadsheet. That's the general rule I worked from: flat-fee where the buyer needs to budget with confidence, usage-based only where the cost driver is something the buyer can see and control.
+        <br><br>
+        Alongside the tiering, I scoped an enterprise packaging framework (SSO, field-level encryption, audit trails, advanced analytics) and rebuilt the positioning narrative from creator-focused tooling to infrastructure-grade platform value, so the pricing page and the security conversation finally say the same thing. This model is in final design ahead of rollout — what's documented here is the architecture and the reasoning behind it, not yet a shipped result.</p>
       </div>
-      <div class="cs-body">
-        <p class="cs-body-text">Competitor pages monitored via VisualPing and Distill.io, routed alongside Google Alerts and Feedly signals into a structured log. Claude analyses each signal, classifies by theme and urgency, detects patterns across weeks, and surfaces actionable recommendations — keeping battlecards current without manual research cycles.</p>
-
-        <div id="ci-shell-embed" style="margin:1.5rem 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)"></div>
-
-        <div class="cs-steps">
-          <div class="cs-step"><div class="step-num">INPUT</div><div class="step-title">VisualPing + Distill</div><div class="step-desc">Monitor competitor pages for pricing, feature, and messaging changes</div></div>
-          <div class="cs-step"><div class="step-num">AGGREGATE</div><div class="step-title">G2 + Capterra + Reddit</div><div class="step-desc">Review signals and community discussions aggregated weekly</div></div>
-          <div class="cs-step"><div class="step-num">ANALYSE</div><div class="step-title">Claude API</div><div class="step-desc">Classifies by theme, urgency, and competitive implication</div></div>
-          <div class="cs-step"><div class="step-num">OUTPUT</div><div class="step-title">Battlecard Updates</div><div class="step-desc">Findings routed directly to sales talk tracks and positioning</div></div>
-        </div>
+      <div class="tags">
+        <span class="tag">Pricing Architecture</span>
+        <span class="tag">Usage-Based vs Flat-Fee Strategy</span>
+        <span class="tag">Enterprise Packaging</span>
+        <span class="tag">Cohort Testing</span>
       </div>
     </div>
-  </div>
-
-  <!-- CS 3 -->
-  <div class="cs-panel" id="cs-3">
-    <div class="cs-card">
-      <div class="cs-card-header">
-        <div class="cs-card-left">
-          <div class="cs-tag-row">
-            <span class="tag tag-green">Founding PMM</span>
-            <span class="tag tag-blue">GTM Strategy</span>
-            <span class="tag tag-amber">0→1</span>
-          </div>
-          <div class="cs-headline">Building a Go-to-Market From Zero</div>
-          <div class="cs-sub">Founding launch strategy built with no brand equity, no ICP, no historical data. 1,000+ signups in Year 1 driven entirely through Google Ads and SEO content — from a standing start.</div>
-        </div>
-        <div class="cs-impact">
-          <div class="impact-stat"><span class="impact-num">1K+</span><div class="impact-label">Signups Yr 1</div></div>
-          <div class="impact-stat"><span class="impact-num">2</span><div class="impact-label">Launch Channels</div></div>
-          <div class="impact-stat"><span class="impact-num">0</span><div class="impact-label">Prior Brand Equity</div></div>
-        </div>
-      </div>
-      <div class="cs-body">
-        <p class="cs-body-text">Joined with no GTM function, no ICP, no positioning, no historical data. Built the entire go-to-market from scratch — ICP research through competitor teardowns and user interviews, pain-to-message mapping, and a two-channel acquisition engine.</p>
-        <div class="cs-steps">
-          <div class="cs-step"><div class="step-num">PRE-LAUNCH</div><div class="step-title">ICP Research</div><div class="step-desc">Competitor teardowns + G2/Capterra mining + Reddit + 1:1 interviews to build ICP with zero internal data</div></div>
-          <div class="cs-step"><div class="step-num">LAUNCH</div><div class="step-title">Google Ads</div><div class="step-desc">RSA copy across 6 keyword themes — problem-aware, competitor-aware, solution-aware</div></div>
-          <div class="cs-step"><div class="step-num">LAUNCH</div><div class="step-title">SEO Content</div><div class="step-desc">Comparison and alternative-to pages for mid-funnel interception</div></div>
-          <div class="cs-step"><div class="step-num">CONVERT</div><div class="step-title">Freemium Entry</div><div class="step-desc">Zero-friction trial — no credit card, natural upgrade path built in</div></div>
-        </div>
-        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-top:1rem;font-family:var(--mono);font-size:12.5px">
-          <div style="color:var(--text3);margin-bottom:0.5rem">// Pain → Message Map</div>
-          <div><span style="color:var(--t-key);color:#79c0ff">Tool fragmentation</span> <span style="color:var(--text3)">→</span> <span style="color:#56d364">"Run your entire course business from one place"</span></div>
-          <div><span style="color:#79c0ff">7.5% transaction fees</span> <span style="color:var(--text3)">→</span> <span style="color:#56d364">"Zero commission. Keep every rupee."</span></div>
-          <div><span style="color:#79c0ff">Tech overwhelm</span> <span style="color:var(--text3)">→</span> <span style="color:#56d364">"Launch a course in an hour. No IT needed."</span></div>
-          <div><span style="color:#79c0ff">Enterprise pricing</span> <span style="color:var(--text3)">→</span> <span style="color:#56d364">"Flat pricing with a free tier. No risk."</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CS 4 -->
-  <div class="cs-panel" id="cs-4">
-    <div class="cs-card">
-      <div class="cs-card-header">
-        <div class="cs-card-left">
-          <div class="cs-tag-row">
-            <span class="tag tag-blue">ICP Research</span>
-            <span class="tag tag-green">Buyer Strategy</span>
-            <span class="tag tag-amber">Segmentation</span>
-          </div>
-          <div class="cs-headline">ICP Evolution — Solo Creator to Enterprise L&amp;D</div>
-          <div class="cs-sub">Two-phase ICP build: Phase 1 from competitor gaps and interviews with zero internal data. Phase 2 data-confirmed via CRM segmentation. 20% enterprise win rate improvement.</div>
-        </div>
-        <div class="cs-impact">
-          <div class="impact-stat"><span class="impact-num">20%</span><div class="impact-label">Enterprise Win Rate</div></div>
-          <div class="impact-stat"><span class="impact-num">5</span><div class="impact-label">Verticals Mapped</div></div>
-          <div class="impact-stat"><span class="impact-num">45%</span><div class="impact-label">MQL→SQL Lift</div></div>
-        </div>
-      </div>
-      <div class="cs-body">
-        <p class="cs-body-text">Phase 1 ICP was researcher-defined — built entirely from competitor gaps and direct user conversations with no internal data. Phase 2 was data-confirmed — CRM signals validated which verticals converted best, enabling sharper persona work and vertical-specific battlecards.</p>
-        <table class="icp-table">
-          <thead><tr><th>Vertical</th><th>Primary Buyer</th><th>Key Need</th><th>Win Signal</th></tr></thead>
-          <tbody>
-            <tr><td>Corporate L&D</td><td>L&D Manager / CHRO</td><td>SCORM, compliance tracking</td><td>Team reporting depth</td></tr>
-            <tr><td>Training Institutes</td><td>Director / Owner</td><td>Multi-trainer licenses, white-label</td><td>Custom domain + branding</td></tr>
-            <tr><td>Hospitality</td><td>HR Head</td><td>Low-bandwidth, 17 languages</td><td>Mobile app + offline access</td></tr>
-            <tr><td>Legal &amp; Professional</td><td>Admin / Partner</td><td>Certifications, audit trails</td><td>Field-level encryption</td></tr>
-            <tr><td>Non-profits</td><td>Program Manager</td><td>Affordable pricing, regional access</td><td>Free tier + regional lang</td></tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="cr fi">
+      <div class="metric"><div class="mn">01</div><div><div class="ml">Pricing Philosophy</div><div class="mv">Flat-fee core platform for buyer predictability; usage-based only where consumption is variable and buyer-visible</div></div></div>
+      <div class="metric"><div class="mn">02</div><div><div class="ml">Tier Design</div><div class="mv">Feature-gated Starter/Professional plans, boundaries set by usage-dependence data, mid-tier cohort-tested</div></div></div>
+      <div class="metric"><div class="mn">03</div><div><div class="ml">Enterprise Framework</div><div class="mv">SSO, field-level encryption, audit trails, advanced analytics — packaged for upmarket deals</div></div></div>
+      <div class="metric"><div class="mn">04</div><div><div class="ml">Status</div><div class="mv">In final design ahead of rollout — not yet live</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- WORK SAMPLES -->
-<section id="work" class="reveal">
-  <div class="section-eyebrow">Work Samples</div>
-  <div class="section-title">Proof behind the process.</div>
-  <div class="work-grid">
+<section id="work-samples">
+  <div class="sh"><div class="sl">Work Samples</div><div class="sn">04</div></div>
+  <div class="wsg">
 
-    <div class="work-card" onmousemove="cardGlow(event,this)" onclick="toggleWork(this)">
-      <div class="work-card-tag">A/B Test · Homepage</div>
-      <h3>Homepage Headline &amp; Pricing Visibility Test</h3>
-      <p>Tested headline copy and pricing visibility over 3 weeks, 5,200 visitors. Validated a repositioning hypothesis, not just a copy preference.</p>
-      <div class="work-stat-row">
-        <div class="work-stat"><span class="work-stat-num">+12%</span><div class="work-stat-label">Signup Lift</div></div>
-        <div class="work-stat"><span class="work-stat-num">5.2K</span><div class="work-stat-label">Visitors</div></div>
-        <div class="work-stat"><span class="work-stat-num">95%</span><div class="work-stat-label">Confidence</div></div>
-      </div>
-      <button class="work-expand-btn">See results</button>
-      <div class="work-detail">
-        <div class="ab-grid">
-          <div class="ab-col"><div class="ab-label">Control</div><div class="ab-val">3.8%</div><div class="ab-desc">"Online Course Creation Platform" + pricing visible</div></div>
-          <div class="ab-col winner"><div class="ab-label">Variant ✓ Winner</div><div class="ab-val">4.3%</div><div class="ab-desc">"Online Training Platform" + pricing removed</div></div>
-        </div>
-        <p style="font-size:12px;color:var(--text3);margin-top:0.5rem">Result justified the full messaging pivot from "course platform" to "training platform" across ads, email, and sales collateral. Pricing moved to a dedicated /pricing page.</p>
-      </div>
-    </div>
-
-    <div class="work-card" onmousemove="cardGlow(event,this)" onclick="toggleWork(this)">
-      <div class="work-card-tag">Buyer Research · Phase 1 ICP</div>
-      <h3>ICP Built From Zero Internal Data</h3>
-      <p>Competitor teardowns, G2/Reddit mining, and 1:1 interviews used to build the first ICP before a single conversion was recorded in the CRM.</p>
-      <div class="work-stat-row">
-        <div class="work-stat"><span class="work-stat-num">4</span><div class="work-stat-label">Research Sources</div></div>
-        <div class="work-stat"><span class="work-stat-num">4</span><div class="work-stat-label">Pains Mapped</div></div>
-        <div class="work-stat"><span class="work-stat-num">0</span><div class="work-stat-label">Prior CRM Data</div></div>
-      </div>
-      <button class="work-expand-btn">See pain map</button>
-      <div class="work-detail">
-        <table class="icp-table">
-          <thead><tr><th>Pain</th><th>Message</th></tr></thead>
-          <tbody>
-            <tr><td>Juggling 4–5 tools</td><td>"Everything in one place. No integrations."</td></tr>
-            <tr><td>7.5% transaction fees</td><td>"Zero commission. Keep every rupee."</td></tr>
-            <tr><td>Tech overwhelm</td><td>"Launch a course in an hour."</td></tr>
-            <tr><td>Enterprise pricing</td><td>"Flat pricing with a free tier."</td></tr>
-          </tbody>
-        </table>
-        <p style="font-size:11px;color:var(--text3);margin-top:0.5rem">Sources: Kajabi/Teachable teardown · G2/Capterra/Trustpilot · Reddit + Facebook groups · Direct interviews</p>
-      </div>
-    </div>
-
-    <div class="work-card" onmousemove="cardGlow(event,this)" onclick="toggleWork(this)">
-      <div class="work-card-tag">GTM · Launch Playbook</div>
-      <h3>0→1 Launch Sequencing</h3>
-      <p>Pre-launch → launch → post-launch sequencing with two owned channels. 1,000+ signups in Year 1 with zero prior brand equity.</p>
-      <div class="work-stat-row">
-        <div class="work-stat"><span class="work-stat-num">1K+</span><div class="work-stat-label">Signups</div></div>
-        <div class="work-stat"><span class="work-stat-num">2</span><div class="work-stat-label">Channels</div></div>
-        <div class="work-stat"><span class="work-stat-num">Q4'20</span><div class="work-stat-label">Launch</div></div>
-      </div>
-      <button class="work-expand-btn">See playbook</button>
-      <div class="work-detail">
-        <p><strong style="color:var(--text)">Pre-launch:</strong> ICP research, competitor teardown, messaging framework, landing page copy, freemium entry design.</p>
-        <p style="margin-top:0.5rem"><strong style="color:var(--text)">Launch:</strong> Google Ads live (RSA copy, 6 keyword themes, competitor displacement). SEO live (comparison + alternative-to pages). Freemium activated — no credit card.</p>
-        <p style="margin-top:0.5rem"><strong style="color:var(--text)">Post-launch:</strong> Funnel analysis, battlecard creation, keyword expansion, messaging iteration on conversion data.</p>
-      </div>
-    </div>
-
-    <div class="work-card" onmousemove="cardGlow(event,this)" onclick="toggleWork(this)">
-      <div class="work-card-tag">PR · Thought Leadership</div>
-      <h3>PR Strategy &amp; Content Engine</h3>
-      <p>Media pitches, press narratives, whitepapers, webinar programmes, and long-form articles driving 43% of inbound pipeline and category authority.</p>
-      <div class="work-stat-row">
-        <div class="work-stat"><span class="work-stat-num">43%</span><div class="work-stat-label">Inbound Traffic</div></div>
-        <div class="work-stat"><span class="work-stat-num">12%</span><div class="work-stat-label">Lead Conversion</div></div>
-      </div>
-      <button class="work-expand-btn">See detail</button>
-      <div class="work-detail">
-        <p>Built end-to-end PR campaigns: media pitches, PR decks, and press narratives securing coverage that reinforced TrainerCentral's positioning in the online training and L&D space.</p>
-        <p style="margin-top:0.5rem">Content engine: whitepapers, long-form SEO articles, webinar scripts, and case studies calibrated to awareness, consideration, and expansion stages for distinct buyer personas.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- BEYOND THE DECK -->
-<section id="beyond" class="reveal">
-  <div class="section-eyebrow">Beyond the Deck</div>
-  <div class="section-title">Things I build to stay sharp.</div>
-
-  <div class="beyond-grid">
-    <!-- N8N WORKFLOW -->
-    <div class="beyond-card" style="grid-column:1/-1">
-      <div class="beyond-card-header">
-        <div class="beyond-card-icon green">⚡</div>
-        <div>
-          <div class="beyond-card-title">SIPA Automation Stack — Real Client Project</div>
-          <div class="beyond-card-sub">n8n · WhatsApp Cloud API · Google Sheets · Apps Script · Cloudflare Pages</div>
-        </div>
-      </div>
-      <div class="beyond-body">
-        <p>After leaving Zoho in May 2026, I've been consulting on automation for an SME client — staying hands-on while searching for the right senior PMM role. The client is South India Pipe Agency, a B2B distribution business. I built their entire sales and payment operations stack, replacing fragmented spreadsheets and WhatsApp threads with 14 connected n8n workflows.</p>
-        <div class="workflow-title">// Interactive Workflow — hover nodes for detail</div>
-        <div class="workflow-container">
-          <div class="workflow-canvas">
-            <div class="wf-node trigger">
-              <span class="wf-icon">📱</span>
-              <div class="wf-label">JustDial<br>Lead</div>
-              <div class="wf-sublabel">Trigger</div>
-              <div class="wf-tooltip">New lead from JustDial → webhook fires n8n workflow</div>
+    <!-- CARD 1: A/B TEST -->
+    <div class="wsc fi">
+      <div class="ws-thumb" onclick="openModal('modal-ab')">
+        <div style="width:100%;height:100%;background:var(--dark);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light)">A/B Test · Homepage</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;flex:1">
+            <!-- Control -->
+            <div style="background:rgba(255,255,255,.04);padding:.75rem;border:1px solid rgba(255,255,255,.06)">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">Control</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.4;margin-bottom:.5rem">"Online Course Creation Platform"</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.25)">+ pricing on page</div>
+              <div style="margin-top:.5rem;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:rgba(184,164,255,.4)">3.8%</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.52rem;color:rgba(255,255,255,.2)">signup rate</div>
             </div>
-            <div class="wf-arrow"><div class="wf-arrow-head"></div></div>
-            <div class="wf-node action">
-              <span class="wf-icon">📊</span>
-              <div class="wf-label">Google<br>Sheets</div>
-              <div class="wf-sublabel">CRM DB</div>
-              <div class="wf-tooltip">Lead written to Sheets — name, phone, source, status: New</div>
-            </div>
-            <div class="wf-arrow"><div class="wf-arrow-head"></div></div>
-            <div class="wf-node action">
-              <span class="wf-icon">💬</span>
-              <div class="wf-label">WhatsApp<br>Welcome</div>
-              <div class="wf-sublabel">Auto-message</div>
-              <div class="wf-tooltip">Instant WhatsApp message sent to lead via Meta Cloud API</div>
-            </div>
-            <div class="wf-arrow"><div class="wf-arrow-head"></div></div>
-            <div class="wf-node action">
-              <span class="wf-icon">⏰</span>
-              <div class="wf-label">Follow-up<br>Nudges</div>
-              <div class="wf-sublabel">Day 2, 5, 10</div>
-              <div class="wf-tooltip">Scheduled follow-ups triggered if lead status unchanged</div>
-            </div>
-            <div class="wf-arrow"><div class="wf-arrow-head"></div></div>
-            <div class="wf-node action">
-              <span class="wf-icon">💰</span>
-              <div class="wf-label">Payment<br>Nudge</div>
-              <div class="wf-sublabel">Won → Invoice</div>
-              <div class="wf-tooltip">On Won status, payment reminder sent with invoice link</div>
-            </div>
-            <div class="wf-arrow"><div class="wf-arrow-head"></div></div>
-            <div class="wf-node output">
-              <span class="wf-icon">✅</span>
-              <div class="wf-label">Customer<br>Record</div>
-              <div class="wf-sublabel">Onboarded</div>
-              <div class="wf-tooltip">Lead converted → Customer tab, referrer tracked, history logged</div>
+            <!-- Variant -->
+            <div style="background:rgba(101,51,255,.12);padding:.75rem;border:1px solid rgba(101,51,255,.3)">
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--accent-light);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.4rem">Variant ✓</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:.78rem;color:rgba(255,255,255,.75);line-height:1.4;margin-bottom:.5rem">"Online Training Platform"</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(184,164,255,.5)">pricing removed</div>
+              <div style="margin-top:.5rem;font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent-light)">4.3%</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.52rem;color:rgba(184,164,255,.5)">signup rate</div>
             </div>
           </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(101,51,255,.7);text-transform:uppercase;letter-spacing:.08em">+12% signups · 3-week test · 95% confidence</div>
         </div>
-        <div class="pill-row" style="margin-top:1rem">
-          <span class="pill">Lead capture (JustDial + walk-in)</span>
-          <span class="pill">WhatsApp follow-up automation</span>
-          <span class="pill">Pipeline status tracking</span>
-          <span class="pill">Payment nudge workflows</span>
-          <span class="pill">Referrer tracking</span>
-          <span class="pill">Customer onboarding</span>
-          <span class="pill">14 n8n workflows total</span>
-        </div>
-        <div class="transfer-note" style="margin-top:1.25rem">
-          <div class="transfer-note-label">→ Why this matters for a payments PMM role</div>
-          <p>Sitting on the merchant side of payments and ops — watching a real business owner deal with fragmented tools, manual reconciliation, and missed follow-ups — is exactly the empathy that makes a payments PMM's messaging land. I've lived the problem Revolut's merchant acquiring product is trying to solve.</p>
-        </div>
+        <div class="ws-hover-label">View Experiment</div>
       </div>
+      <div class="ws-body">
+        <div class="wsn">01</div>
+        <div class="wst">Homepage A/B Test — Headline &amp; Pricing</div>
+        <div class="wsd">Tested two homepage variants over 3 weeks across ~5,200 visitors. Changed headline copy and removed pricing from the page. Variant with no pricing drove 12% more signups — consistent with CRO research showing that front-loading cost creates friction before value is established.</div>
+        <span class="wstype">A/B Testing · CRO · Campaign Optimisation</span>
+      </div>
+    </div>
+
+    <!-- CARD 2: ICP -->
+    <div class="wsc fi">
+      <div class="ws-thumb" onclick="openModal('modal-icp')">
+        <div style="width:100%;height:100%;background:var(--dark);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light)">ICP Definition</div>
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:.5rem;align-items:center;flex:1">
+            <div style="display:flex;flex-direction:column;gap:.35rem">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:var(--accent-light);opacity:.6">Phase 1</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(255,255,255,.3);line-height:1.6">Solo Trainers<br>Edupreneurs<br>Indie Coaches<br>Culinary Creators</div>
+            </div>
+            <div style="text-align:center;color:var(--accent-light);font-family:'Bebas Neue',sans-serif;font-size:1.8rem;opacity:.4">→</div>
+            <div style="display:flex;flex-direction:column;gap:.35rem">
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:var(--accent-light)">Phase 2</div>
+              <div style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:rgba(184,164,255,.7);line-height:1.6">Corporate L&D<br>Training Institutes<br>Hospitality<br>Legal · NGOs</div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(101,51,255,.6);text-transform:uppercase;letter-spacing:.08em">Research-led · 0→1 → Enterprise</div>
+        </div>
+        <div class="ws-hover-label">View ICP Research</div>
+      </div>
+      <div class="ws-body">
+        <div class="wsn">02</div>
+        <div class="wst">ICP Evolution — Solo to Enterprise</div>
+        <div class="wsd">Phase 1 ICP built from zero data — competitor teardowns, user interviews, G2/Reddit mining. Phase 2 enterprise ICP built after CRM data became available, segmenting by vertical with dedicated buyer profiles and enablement per segment.</div>
+        <span class="wstype">Buyer Research · ICP Definition</span>
+      </div>
+    </div>
+
+    <!-- CARD 3: GTM CASE STUDY -->
+    <div class="wsc fi">
+      <div class="ws-thumb" onclick="openModal('modal-gtm')">
+        <div style="width:100%;height:100%;background:var(--dark);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1px;background-color:rgba(255,255,255,.07)">
+          <div style="background:var(--dark);padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--accent-light);line-height:1">1K+</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(237,234,246,.35);text-transform:uppercase;letter-spacing:.06em">Signups · Year 1</div>
+          </div>
+          <div style="background:var(--dark);padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:rgba(184,164,255,.35);line-height:1">0</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(237,234,246,.35);text-transform:uppercase;letter-spacing:.06em">Pre-launch Brand Equity</div>
+          </div>
+          <div style="background:var(--dark);padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--accent-light);line-height:1">Q4</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(237,234,246,.35);text-transform:uppercase;letter-spacing:.06em">2020 · Launch Quarter</div>
+          </div>
+          <div style="background:var(--dark);padding:1.2rem;display:flex;flex-direction:column;justify-content:flex-end">
+            <div style="font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--accent-light);line-height:1">2</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(237,234,246,.35);text-transform:uppercase;letter-spacing:.06em">Channels Owned</div>
+          </div>
+        </div>
+        <div class="ws-hover-label">View GTM Strategy</div>
+      </div>
+      <div class="ws-body">
+        <div class="wsn">03</div>
+        <div class="wst">0→1 GTM Launch — TrainerCentral</div>
+        <div class="wsd">Founding launch strategy built with no brand equity, no ICP, and no historical data. 1,000+ signups in Year 1 driven entirely by Google Ads and SEO content. Documents the full ICP research process, pain-to-message framework, channel strategy, and launch sequencing.</div>
+        <span class="wstype">GTM Strategy · Founding PMM</span>
+      </div>
+    </div>
+
+    <!-- CARD 4: AI FEATURE LAUNCHES -->
+    <div class="wsc fi">
+      <div class="ws-thumb" onclick="openModal('modal-ai')">
+        <div style="width:100%;height:100%;background:var(--dark);padding:1.5rem;display:flex;flex-direction:column;gap:.6rem">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light)">AI Feature Launches</div>
+          <div style="display:flex;flex-direction:column;gap:.45rem;flex:1;justify-content:center">
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);padding:.55rem .75rem;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-family:'DM Serif Display',serif;font-size:.8rem;color:rgba(255,255,255,.75)">AI Course Generation</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--accent-light);text-transform:uppercase">Launched</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);padding:.55rem .75rem;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-family:'DM Serif Display',serif;font-size:.8rem;color:rgba(255,255,255,.75)">Automated Assessments</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--accent-light);text-transform:uppercase">Launched</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.04);padding:.55rem .75rem;border:1px solid rgba(255,255,255,.06)">
+              <span style="font-family:'DM Serif Display',serif;font-size:.8rem;color:rgba(255,255,255,.75)">Adaptive Learning</span>
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:.55rem;color:var(--accent-light);text-transform:uppercase">Launched</span>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:.58rem;color:rgba(101,51,255,.7);text-transform:uppercase;letter-spacing:.08em">End-to-end ownership · Messaging to adoption</div>
+        </div>
+        <div class="ws-hover-label">View Launch Approach</div>
+      </div>
+      <div class="ws-body">
+        <div class="wsn">04</div>
+        <div class="wst">AI Feature Launches — Messaging to Adoption</div>
+        <div class="wsd">Owned end-to-end GTM for three AI features shipped into the product — AI-generated course content, automated assessments, and adaptive learning. Translated technical capability into value for data-aware buyers, L&amp;D leaders, and business stakeholders, then tracked adoption post-launch.</div>
+        <span class="wstype">AI Product Marketing · Launch Ownership</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="skills">
+  <div class="sh"><div class="sl">Core Skills</div><div class="sn">05</div></div>
+  <div class="skc">
+    <div class="skcol fi">
+      <div class="skgrp">Pricing, Monetization &amp; Growth</div>
+      <div class="skrow"><span class="skname">Pricing Architecture &amp; Tiering</span><div class="bw"><div class="bar" style="width:92%;animation-delay:.1s"></div></div></div>
+      <div class="skrow"><span class="skname">Enterprise Packaging &amp; Upmarket Positioning</span><div class="bw"><div class="bar" style="width:88%;animation-delay:.2s"></div></div></div>
+      <div class="skrow"><span class="skname">Lifecycle &amp; Retention Marketing</span><div class="bw"><div class="bar" style="width:90%;animation-delay:.3s"></div></div></div>
+      <div class="skrow"><span class="skname">A/B Testing &amp; CRO</span><div class="bw"><div class="bar" style="width:86%;animation-delay:.4s"></div></div></div>
+      <div class="skrow"><span class="skname">KPI Analysis &amp; Business Reviews</span><div class="bw"><div class="bar" style="width:90%;animation-delay:.5s"></div></div></div>
+    </div>
+    <div class="skcol fi">
+      <div class="skgrp">AI &amp; Competitive Intelligence</div>
+      <div class="skrow"><span class="skname">AI-Powered Market Intelligence (Claude API)</span><div class="bw"><div class="bar" style="width:94%;animation-delay:.15s"></div></div></div>
+      <div class="skrow"><span class="skname">AI Feature Launch &amp; GTM</span><div class="bw"><div class="bar" style="width:90%;animation-delay:.25s"></div></div></div>
+      <div class="skrow"><span class="skname">ICP Definition &amp; Sales Enablement</span><div class="bw"><div class="bar" style="width:88%;animation-delay:.35s"></div></div></div>
+      <div class="skrow"><span class="skname">Customer Feedback Synthesis (VoC)</span><div class="bw"><div class="bar" style="width:86%;animation-delay:.45s"></div></div></div>
+      <div class="skrow"><span class="skname">Cross-functional Collaboration</span><div class="bw"><div class="bar" style="width:90%;animation-delay:.55s"></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience" class="reveal">
-  <div class="section-eyebrow">Experience</div>
-  <div class="section-title">Where the work happened.</div>
-  <div class="exp-list">
+<!-- ─── MODALS ─────────────────────────────────────────── -->
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-dates">Nov 2020<br>May 2026<br>Chennai</div>
+<!-- A/B TEST MODAL -->
+<div class="modal-overlay" id="modal-ab" onclick="closeModalOutside(event,'modal-ab')">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-title">Homepage A/B Test — Headline Copy &amp; Pricing Visibility</div>
+      <button class="modal-close" onclick="closeModal('modal-ab')">Close ✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="gtm-metrics">
+        <div class="gtm-metric"><div class="gtm-num">12%</div><div class="gtm-label">Signup Lift — Variant</div></div>
+        <div class="gtm-metric"><div class="gtm-num">3wk</div><div class="gtm-label">Test Duration</div></div>
+        <div class="gtm-metric"><div class="gtm-num">5.2K</div><div class="gtm-label">Visitors Tested</div></div>
+        <div class="gtm-metric"><div class="gtm-num">95%</div><div class="gtm-label">Confidence Level</div></div>
       </div>
-      <div class="exp-right">
-        <div class="exp-co">Zoho Corporation</div>
-        <div class="exp-role">Senior Product Marketer — TrainerCentral</div>
-        <p class="exp-desc">Founding PMM. Built the entire GTM function from zero — ICP, positioning, value proposition, channel strategy, PR, pricing, sales enablement, and competitive intelligence — across India, the U.S., and Singapore. Led a 4-person PMM team. Drove 18% revenue lift through pricing architecture, 45% MQL→SQL improvement, 20% enterprise win rate lift, and paid churn from 11% to 5%.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">Value Proposition</span><span class="exp-tag">GTM Strategy</span><span class="exp-tag">PR &amp; Thought Leadership</span><span class="exp-tag">Competitive Intelligence</span><span class="exp-tag">Pricing Strategy</span><span class="exp-tag">Global Scaling</span><span class="exp-tag">Team Leadership</span><span class="exp-tag">Product Adoption</span>
+
+      <p class="gtm-body">The homepage headline had been "Online Course Creation Platform" since launch. As we repositioned upmarket toward training businesses and corporate buyers, the messaging felt misaligned. I proposed a test: change the headline to "Online Training Platform" and simultaneously remove the pricing section from the page entirely. The hypothesis was that pricing on a homepage — before a visitor has understood the value — creates friction and triggers self-disqualification, especially for business buyers comparing multiple tools.</p>
+
+      <div class="gtm-2col">
+        <div>
+          <div class="gtm-col-head">Test setup</div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Control (A)</div><div class="gtm-pain-to">Headline: "Online Course Creation Platform" + pricing section visible on homepage</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Variant (B)</div><div class="gtm-pain-to">Headline: "Online Training Platform" + new design layout + pricing section removed</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Primary metric</div><div class="gtm-pain-to">Visitor-to-free-trial signup rate</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Traffic split</div><div class="gtm-pain-to">50/50 — ~2,600 visitors per variant</div></div>
+        </div>
+        <div>
+          <div class="gtm-col-head">Results</div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Control signup rate</div><div class="gtm-pain-to">3.8% — in line with Unbounce's reported SaaS homepage median</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Variant signup rate</div><div class="gtm-pain-to">4.3% — 12% relative lift over control</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Trial-to-paid conversion</div><div class="gtm-pain-to">22% — within B2B opt-in industry benchmark of 18–25%</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Decision</div><div class="gtm-pain-to">Variant B shipped as default homepage. Pricing moved to a dedicated /pricing page.</div></div>
         </div>
       </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-dates">Jun 2020<br>Nov 2020</div>
+      <p class="bc-section-label" style="margin-bottom:.7rem">Why the result made sense</p>
+      <div class="bc-win-grid">
+        <div class="bc-win"><div class="bc-win-label">Headline shift</div><div class="bc-win-title">"Training" vs "Course Creation"</div><div class="bc-win-body">"Course creation" positions the buyer as a content producer. "Training" positions them as a business owner — a higher-intent framing for the SMB and corporate segment we were targeting.</div></div>
+        <div class="bc-win"><div class="bc-win-label">Pricing removal</div><div class="bc-win-title">Homepage is not a purchase page</div><div class="bc-win-body">Showing pricing before value is established invites comparison shopping and price anchoring. Moving it downstream lets the product make the case first.</div></div>
+        <div class="bc-win"><div class="bc-win-label">Design layout</div><div class="bc-win-title">Visual hierarchy change</div><div class="bc-win-body">Variant B restructured the hero to lead with outcome-first copy and a cleaner CTA path — reducing cognitive load at the point of first impression.</div></div>
       </div>
-      <div class="exp-right">
-        <div class="exp-co">Freelance</div>
-        <div class="exp-role">Content Marketer — B2B SaaS</div>
-        <p class="exp-desc">SEO strategy, brand messaging, and growth positioning for early-stage B2B SaaS startups — 2–3× organic traffic growth and 15–25% conversion rate improvements. Brand messaging and PR strategy for esports teams.</p>
-      </div>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-dates">Jun 2019<br>Oct 2020</div>
+      <div class="gtm-outcome" style="margin-top:1.2rem">
+        <div class="gtm-outcome-label">Learning applied</div>
+        <div class="gtm-outcome-text">The test result validated a repositioning hypothesis, not just a copy preference. It gave internal justification for the broader messaging shift from "course platform" to "training platform" — which subsequently carried through to ad copy, email sequences, and sales collateral.</div>
       </div>
-      <div class="exp-right">
-        <div class="exp-co">TATA Projects</div>
-        <div class="exp-role">Deputy Manager</div>
-        <p class="exp-desc">Project scheduling, budget forecasting, and cross-functional reporting for large-scale infrastructure projects — building the analytical rigour and stakeholder communication discipline central to PMM operations work today.</p>
-      </div>
-    </div>
 
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="reveal">
-  <div class="section-eyebrow">Skills &amp; Expertise</div>
-  <div class="section-title">The full stack.</div>
-  <div class="skills-grid">
-    <div class="skill-group">
-      <div class="skill-group-label">Fintech &amp; Payments</div>
-      <div class="skill-items">
-        <span class="skill-item">Merchant Acquiring</span><span class="skill-item">Payment Infrastructure</span><span class="skill-item">MDR &amp; Fee Structures</span><span class="skill-item">Stripe / Adyen / SumUp</span><span class="skill-item">Fintech GTM</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Product Marketing Core</div>
-      <div class="skill-items">
-        <span class="skill-item">Value Proposition Development</span><span class="skill-item">GTM Strategy</span><span class="skill-item">ICP Definition</span><span class="skill-item">Competitive Intelligence</span><span class="skill-item">VoC Research</span><span class="skill-item">Roadmap Influence</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Channels &amp; Campaigns</div>
-      <div class="skill-items">
-        <span class="skill-item">Performance Marketing</span><span class="skill-item">SEO / AEO / GEO</span><span class="skill-item">PR &amp; Media Strategy</span><span class="skill-item">In-Product Campaigns</span><span class="skill-item">Email &amp; Lifecycle</span><span class="skill-item">A/B Testing</span>
-      </div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-group-label">Analytics &amp; AI</div>
-      <div class="skill-items">
-        <span class="skill-item">Product Adoption Monitoring</span><span class="skill-item">Funnel Analytics</span><span class="skill-item">Claude API</span><span class="skill-item">n8n Automation</span><span class="skill-item">AI Workflow Design</span><span class="skill-item">GA4</span><span class="skill-item">Zoho Analytics</span>
-      </div>
     </div>
   </div>
-</section>
+</div>
 
-<footer>
-  <p>sakthi ramkumar s &nbsp;·&nbsp; <a href="mailto:ramkr_31@outlook.com">ramkr_31@outlook.com</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/sakthiramkumar" target="_blank">linkedin</a> &nbsp;·&nbsp; +91 98424 64948</p>
-</footer>
+<!-- ICP MODAL -->
+<div class="modal-overlay" id="modal-icp" onclick="closeModalOutside(event,'modal-icp')">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-title">ICP Definition &amp; Buyer Research — TrainerCentral</div>
+      <button class="modal-close" onclick="closeModal('modal-icp')">Close ✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="icp-phase-label">Phase 1 · Q4 2020 — Solo Trainers &amp; Edupreneurs</div>
+      <p style="font-size:.88rem;line-height:1.8;color:var(--slate);margin-bottom:1.2rem">Phase 1 ICP was built with zero internal data — no CRM history, no conversion analytics, no customer base. Research was entirely external: competitor analysis, community mining, and direct interviews. The goal was to find an underserved segment the market leaders (Kajabi, Teachable) weren't serving well.</p>
+
+      <p class="bc-section-label" style="margin-bottom:.7rem">Research methods</p>
+      <div class="icp-methods">
+        <div class="icp-method"><div class="icp-method-head">Competitor Teardown</div><div class="icp-method-body">Kajabi and Teachable's messaging revealed an underserved segment — independent creators who couldn't justify $149/mo enterprise pricing.</div></div>
+        <div class="icp-method"><div class="icp-method-head">G2 / Capterra / Trustpilot</div><div class="icp-method-body">Mined competitor reviews for recurring complaints: hidden fees, Zoom dependency, complex setup, pricing shock as audiences grew.</div></div>
+        <div class="icp-method"><div class="icp-method-head">Reddit + Facebook Groups</div><div class="icp-method-body">Monitored creator communities for unsolicited frustrations — the most honest, unfiltered signal when you have no internal data.</div></div>
+        <div class="icp-method"><div class="icp-method-head">Direct User Interviews</div><div class="icp-method-body">Validated review findings 1:1. Asked about current tool stack, monthly costs, and what they'd eliminate first if they could.</div></div>
+      </div>
+
+      <p class="bc-section-label" style="margin-bottom:.7rem">Buyer personas derived</p>
+      <div class="icp-personas">
+        <div class="icp-persona"><div class="icp-persona-icon">🏋️</div><div class="icp-persona-name">The Fitness Coach</div><div class="icp-persona-desc">Monetising 1:1 sessions into scalable group courses</div></div>
+        <div class="icp-persona"><div class="icp-persona-icon">💼</div><div class="icp-persona-name">The Business Mentor</div><div class="icp-persona-desc">Selling cohort-based programs and advisory bootcamps</div></div>
+        <div class="icp-persona"><div class="icp-persona-icon">📚</div><div class="icp-persona-name">The Edupreneur</div><div class="icp-persona-desc">Building a course-first business around a specific skill</div></div>
+        <div class="icp-persona"><div class="icp-persona-icon">🍳</div><div class="icp-persona-name">The Culinary Creator</div><div class="icp-persona-desc">Teaching techniques online — culinary, crafts, music</div></div>
+      </div>
+
+      <p class="bc-section-label" style="margin-bottom:.7rem">Pain → value bucket → message</p>
+      <table class="icp-msg-table">
+        <thead><tr><th>Pain</th><th>Value Bucket</th><th>Message</th></tr></thead>
+        <tbody>
+          <tr><td>Juggling 4–5 tools: course host + Zoom + payments + website + email</td><td>All-in-one platform</td><td>Everything you need, in one place. No integrations, no juggling.</td></tr>
+          <tr><td>Losing up to 7.5% per sale to transaction fees</td><td>Zero commission</td><td>Keep 100% of every rupee you earn.</td></tr>
+          <tr><td>Tech overwhelm — they're experts, not developers</td><td>No-code simplicity</td><td>Launch your first course in an hour. No IT help needed.</td></tr>
+          <tr><td>Platforms priced for funded businesses, not independents</td><td>Affordable flat pricing</td><td>Built for independent creators — not corporations.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="icp-phase-label">Phase 2 · 2022 — Enterprise Reposition</div>
+      <p style="font-size:.88rem;line-height:1.8;color:var(--slate);margin-bottom:1.2rem">After repositioning TrainerCentral as an LMS for training businesses, CRM data from early customers became available for the first time. This enabled proper vertical segmentation — each segment got its own ICP profile, use-case mapping, and dedicated enablement.</p>
+
+      <p class="bc-section-label" style="margin-bottom:.7rem">Enterprise verticals — segmented ICP</p>
+      <table class="icp-v-table">
+        <thead><tr><th>Vertical</th><th>Primary Buyer</th><th>Key Need</th></tr></thead>
+        <tbody>
+          <tr><td>Corporate L&amp;D</td><td>L&amp;D Manager / CHRO</td><td>Compliance tracking, team reporting, SCORM support</td></tr>
+          <tr><td>Training Institutes</td><td>Director / Owner</td><td>Multi-trainer licenses, white-label, custom domain</td></tr>
+          <tr><td>Hospitality</td><td>HR Head</td><td>Low-bandwidth support, 17 languages, mobile app</td></tr>
+          <tr><td>Legal &amp; Professional</td><td>Admin / Partner</td><td>Certifications, audit trails, field-level encryption</td></tr>
+          <tr><td>Non-profits / NGOs</td><td>Program Manager</td><td>Affordable pricing, regional language, rural access</td></tr>
+        </tbody>
+      </table>
+
+      <div class="icp-learn">
+        <div class="icp-learn-label">Key learning</div>
+        <div class="icp-learn-text">Phase 1 ICP was researcher-defined — built entirely from competitor gaps and direct user conversations, with no internal data to rely on. Phase 2 ICP was data-confirmed — CRM signals validated which verticals converted best, enabling sharper persona work, vertical-specific battlecards, and targeted sales enablement for each segment.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- GTM CASE STUDY MODAL -->
+<div class="modal-overlay" id="modal-gtm" onclick="closeModalOutside(event,'modal-gtm')">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-title">0→1 GTM Launch · TrainerCentral · Q4 2020</div>
+      <button class="modal-close" onclick="closeModal('modal-gtm')">Close ✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="gtm-metrics">
+        <div class="gtm-metric"><div class="gtm-num">1K+</div><div class="gtm-label">Signups — Year 1</div></div>
+        <div class="gtm-metric"><div class="gtm-num">2</div><div class="gtm-label">Channels Owned</div></div>
+        <div class="gtm-metric"><div class="gtm-num">0</div><div class="gtm-label">Pre-launch Brand Equity</div></div>
+        <div class="gtm-metric"><div class="gtm-num">Q4</div><div class="gtm-label">2020 · Launch Quarter</div></div>
+      </div>
+      <p class="gtm-body">Founding PMM for TrainerCentral. Joined with no GTM function, no ICP, no positioning, no historical data, and no brand equity. Built the entire go-to-market from scratch — ICP research through competitor teardowns and user interviews, pain-to-message mapping, landing page copy, and a two-channel acquisition engine. Reached 1,000+ signups in Year 1 entirely through Google Ads and inbound SEO content. Established the playbook that scaled into subsequent phases.</p>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Core message</div>
+      <div style="background:var(--dark);padding:1rem 1.3rem;margin-bottom:1.4rem;font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--accent-light)">"Run your entire course business from one place."</div>
+
+      <div class="gtm-2col">
+        <div>
+          <div class="gtm-col-head">Pain → message map</div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Juggling 4–5 tools: course host + Zoom + payments + website</div><div class="gtm-pain-to">→ One platform: courses, live classes, payments &amp; website.</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Losing up to 7.5% per sale in transaction fees</div><div class="gtm-pain-to">→ Zero tx fees. Every rupee stays with the creator.</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Tech overwhelm — experts, not developers</div><div class="gtm-pain-to">→ No-code. Launch a course in an hour.</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Platforms built for funded businesses</div><div class="gtm-pain-to">→ Flat pricing with a free tier. No credit card, no risk.</div></div>
+        </div>
+        <div>
+          <div class="gtm-col-head">Launch sequencing</div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Pre-launch</div><div class="gtm-seq-desc">ICP research, competitor teardown, messaging framework, landing page copy</div></div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Launch · Q4 2020</div><div class="gtm-seq-desc">Google Ads + SEO content live. Freemium tier activated. RSA copy across 6 keyword themes.</div></div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Post-launch</div><div class="gtm-seq-desc">Funnel analysis, battlecards, keyword expansion, messaging iteration based on conversion data</div></div>
+        </div>
+      </div>
+
+      <p class="bc-section-label" style="margin-bottom:.7rem">Channel strategy</p>
+      <div class="bc-win-grid">
+        <div class="bc-win"><div class="bc-win-label">Google Ads</div><div class="bc-win-title">Competitor displacement</div><div class="bc-win-body">RSA copy across 6 keyword themes — high-intent searches for Kajabi &amp; Teachable alternatives. Bottom funnel, competitor displacement.</div></div>
+        <div class="bc-win"><div class="bc-win-label">SEO / Inbound</div><div class="bc-win-title">Mid-funnel interception</div><div class="bc-win-body">Comparison and alternative-to pages built to intercept mid-funnel buyers already evaluating course platform pricing and features.</div></div>
+        <div class="bc-win"><div class="bc-win-label">Freemium</div><div class="bc-win-title">Zero-friction entry</div><div class="bc-win-body">Free tier activated at launch — no credit card, no risk. Lowered conversion barrier for price-sensitive ICP. Natural upgrade path built into product.</div></div>
+      </div>
+
+      <div class="gtm-outcome" style="margin-top:1.2rem">
+        <div class="gtm-outcome-label">Outcome</div>
+        <div class="gtm-outcome-text">1,000+ signups in Year 1 — driven entirely by Google Ads and inbound content with zero pre-existing brand equity. Established the paid acquisition and SEO playbook that scaled into multi-market expansion in subsequent phases.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- AI FEATURE LAUNCHES MODAL -->
+<div class="modal-overlay" id="modal-ai" onclick="closeModalOutside(event,'modal-ai')">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <div class="modal-title">AI Feature Launches — TrainerCentral</div>
+      <button class="modal-close" onclick="closeModal('modal-ai')">Close ✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="gtm-metrics">
+        <div class="gtm-metric"><div class="gtm-num">3</div><div class="gtm-label">AI Features Launched</div></div>
+        <div class="gtm-metric"><div class="gtm-num">E2E</div><div class="gtm-label">Messaging → Enablement → Adoption</div></div>
+        <div class="gtm-metric"><div class="gtm-num">3</div><div class="gtm-label">Distinct Buyer Audiences</div></div>
+        <div class="gtm-metric"><div class="gtm-num">Claude</div><div class="gtm-label">+ ChatGPT Used in the Launch Workflow</div></div>
+      </div>
+
+      <p class="gtm-body">Each AI feature carried a different value story depending on who was reading it. The job wasn't explaining what the AI did — it was translating that into something a buyer with limited patience for jargon could act on: an L&amp;D leader needed to know it cut content-build time without sacrificing instructional quality, a business stakeholder needed to know it lowered cost-per-course at scale, and a technically curious evaluator needed an honest answer on what was actually happening under the hood, not a feature list.</p>
+
+      <div class="gtm-2col">
+        <div>
+          <div class="gtm-col-head">Per-feature messaging</div>
+          <div class="gtm-pain"><div class="gtm-pain-from">AI Course Generation</div><div class="gtm-pain-to">From idea to structured curriculum in minutes, with human review built into the workflow, not bypassed by it.</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Automated Assessments</div><div class="gtm-pain-to">Question generation and auto-grading that frees trainer time without lowering rigor.</div></div>
+          <div class="gtm-pain"><div class="gtm-pain-from">Adaptive Learning</div><div class="gtm-pain-to">Pacing and content sequencing that adjusts to individual learner performance in real time.</div></div>
+        </div>
+        <div>
+          <div class="gtm-col-head">Launch motion</div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Pre-launch</div><div class="gtm-seq-desc">Beta cohort feedback, demo narrative development, FAQ and objection-handling for sales</div></div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Launch</div><div class="gtm-seq-desc">In-app announcement, lifecycle email, sales enablement rollout, landing page updates</div></div>
+          <div class="gtm-seq"><div class="gtm-seq-phase">Post-launch</div><div class="gtm-seq-desc">Adoption tracking by feature, usage-led follow-up messaging, positioning iteration based on uptake</div></div>
+        </div>
+      </div>
+
+      <div class="gtm-outcome">
+        <div class="gtm-outcome-label">Outcome</div>
+        <div class="gtm-outcome-text">Owned messaging, demo narratives, and sales enablement for all three launches end to end — shaping how each feature was framed before it ever reached a customer, not just producing collateral after Product had already shipped.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <script>
-// TYPEWRITER
-const phrases = [
-  'Senior Product Marketer',
-  'GTM Builder · 0→1',
-  'Competitive Intelligence · Claude API',
-  'B2B Fintech · Payments Ecosystem',
-  'Value Proposition Owner'
-];
-let pi=0,ci=0,deleting=false,tw=document.getElementById('typewriter');
-function type(){
-  const phrase=phrases[pi];
-  if(!deleting){
-    ci++;
-    tw.innerHTML=phrase.slice(0,ci)+'<span class="cursor"></span>';
-    if(ci===phrase.length){deleting=true;setTimeout(type,1800);return}
-    setTimeout(type,55);
-  } else {
-    ci--;
-    tw.innerHTML=phrase.slice(0,ci)+'<span class="cursor"></span>';
-    if(ci===0){deleting=false;pi=(pi+1)%phrases.length;setTimeout(type,400);return}
-    setTimeout(type,30);
-  }
-}
-setTimeout(type,600);
-
-// SCROLL PROGRESS
-window.addEventListener('scroll',()=>{
-  const el=document.getElementById('scroll-progress');
-  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
-  el.style.width=pct+'%';
-  // nav active
-  const sections=['case-studies','work','beyond','experience','skills'];
-  sections.forEach(id=>{
-    const s=document.getElementById(id);
-    if(!s)return;
-    const link=document.querySelector('.nav-links a[href="#'+id+'"]');
-    if(!link)return;
-    const rect=s.getBoundingClientRect();
-    if(rect.top<=100&&rect.bottom>=100){link.classList.add('active')}
-    else{link.classList.remove('active')}
+// ── CURSOR ──
+(function(){
+  var cur=document.getElementById('cur'),curT=document.getElementById('curT');
+  var mx=0,my=0,tx=0,ty=0;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  setInterval(function(){tx+=(mx-tx)*.12;ty+=(my-ty)*.12;curT.style.left=tx+'px';curT.style.top=ty+'px';},16);
+  document.querySelectorAll('button,a,select').forEach(function(el){
+    el.addEventListener('mouseenter',function(){cur.classList.add('on');});
+    el.addEventListener('mouseleave',function(){cur.classList.remove('on');});
   });
-});
+})();
 
-// REVEAL ON SCROLL
-const reveals=document.querySelectorAll('.reveal');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
-},{threshold:0.1});
-reveals.forEach(r=>observer.observe(r));
+// ── NAVIGATION ──
+function goTo(id){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 
-// CASE STUDY TABS
-function showCS(idx,btn){
-  document.querySelectorAll('.cs-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.cs-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('cs-'+idx).classList.add('active');
+// ── FADE IN ──
+(function(){
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('show');});},{threshold:0.06});
+  document.querySelectorAll('.fi').forEach(function(el){obs.observe(el);});
+})();
+
+// ── MODALS ──
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+function closeModalOutside(e,id){if(e.target===document.getElementById(id))closeModal(id);}
+
+// ── BATTLECARD TABS ──
+function bcTab(name,btn){
+  document.querySelectorAll('.bc-tab').forEach(function(t){t.classList.remove('active');});
   btn.classList.add('active');
-
+  document.querySelectorAll('.bc-panel').forEach(function(p){p.classList.remove('active');});
+  var panel=document.getElementById('bc-'+name);
+  if(panel)panel.classList.add('active');
 }
-
-// WORK EXPAND — triggered by clicking anywhere on the card
-function toggleWork(el){
-  // el is the card div; find the button and detail inside it
-  const card = el.classList.contains('work-card') ? el : el.closest('.work-card');
-  if(!card) return;
-  const btn = card.querySelector('.work-expand-btn');
-  const detail = card.querySelector('.work-detail');
-  if(!btn || !detail) return;
-  const isOpen = detail.classList.contains('visible');
-  if(isOpen){
-    detail.classList.remove('visible');
-    btn.classList.remove('open');
-    btn.textContent = btn.dataset.orig;
-  } else {
-    if(!btn.dataset.orig) btn.dataset.orig = btn.textContent;
-    detail.classList.add('visible');
-    btn.classList.add('open');
-    btn.textContent = 'Close ↑';
-  }
-}
+function bcObj(el){var wasOpen=el.classList.contains('open');document.querySelectorAll('.bc-obj-item').forEach(function(i){i.classList.remove('open');});if(!wasOpen)el.classList.add('open');}
 
 // ── CI TRACKER ──
 (function(){
@@ -864,15 +973,19 @@ function toggleWork(el){
     {label:'Press / Announcement',cadence:'as-it-happens',weight:1.1,key:'press'},
     {label:'Manual Observation',cadence:'manual',weight:0.8,key:'manual'},
   ];
-  var CS2={tab:'add',entries:[],hyps:[],rawPaste:'',parsed:null,step:'paste',statusLabel:'',error:'',filter:'All',filterAction:'all',confirmClear:null};
+
+  var CS={tab:'add',entries:[],hyps:[],rawPaste:'',parsed:null,step:'paste',statusLabel:'',error:'',filter:'All',filterAction:'all',confirmClear:null};
+
   function gpm(k){return PAGE_TYPES.find(function(p){return p.key===k;})||{label:k,cadence:'manual',weight:1.0,key:k};}
-  function cbadge(pt){var m=gpm(pt);var map={'daily':'bprice2','on publish':'blang2','weekly':'bprod2','as-it-happens':'bcamp2',manual:'bnois2'};return'<span class="ciw-badge '+(map[m.cadence]||'bnois2')+'">'+m.cadence+'</span>';}
-  function tbadge(t){var c={'Pricing Move':'bprice2','Messaging Shift':'blang2','Feature Launch':'bprod2','Enterprise Positioning':'bcamp2','Hiring Signal':'bhire2','Noise':'bnois2'};return'<span class="ciw-badge '+(c[t]||'bnois2')+'">'+(t||'Other')+'</span>';}
-  function teamchip(t){var m={PMM:'team-pmm2',Product:'team-prod2',Sales:'team-sales2',Leadership:'team-lead2'};return'<span class="ciw-team '+(m[t]||'team-pmm2')+'">'+t+'</span>';}
+  function cbadge(pt){var m=gpm(pt);var map={'daily':'bprice','on publish':'blang','weekly':'bproduct','as-it-happens':'bcampaign',manual:'bnoise'};return'<span class="ci-badge '+(map[m.cadence]||'bother')+'">'+m.cadence+'</span>';}
+  function tbadge(t){var c={'Pricing Move':'bprice','Messaging Shift':'blang','Feature Launch':'bproduct','Enterprise Positioning':'bcampaign','Hiring Signal':'bhiring','Noise':'bnoise'};return'<span class="ci-badge '+(c[t]||'bother')+'">'+(t||'Other')+'</span>';}
+  function teamchip(t){var m={PMM:'team-pmm',Product:'team-prod',Sales:'team-sales',Leadership:'team-lead'};return'<span class="ci-team '+(m[t]||'team-pmm')+'">'+t+'</span>';}
   function cc(c){return c>=75?'#166534':c>=50?'#854F0B':'#6b7280';}
-  function cisave2(){try{localStorage.setItem('ci2-ent-e',JSON.stringify(CS2.entries));}catch(e){}try{localStorage.setItem('ci2-ent-h',JSON.stringify(CS2.hyps));}catch(e){}}
-  function ciload2(){try{var e=localStorage.getItem('ci2-ent-e');if(e)CS2.entries=JSON.parse(e);}catch(e){}try{var h=localStorage.getItem('ci2-ent-h');if(h)CS2.hyps=JSON.parse(h);}catch(e){}}
-  function extractJSON2(content){
+
+  function cisave(){try{localStorage.setItem('ci-ent-e',JSON.stringify(CS.entries));}catch(e){}try{localStorage.setItem('ci-ent-h',JSON.stringify(CS.hyps));}catch(e){}}
+  function ciload(){try{var e=localStorage.getItem('ci-ent-e');if(e)CS.entries=JSON.parse(e);}catch(e){}try{var h=localStorage.getItem('ci-ent-h');if(h)CS.hyps=JSON.parse(h);}catch(e){}}
+
+  function extractJSON(content){
     var texts=content.filter(function(b){return b.type==='text';}).map(function(b){return b.text||'';}).join('\n');
     var cleaned=texts.replace(/```json\s*/g,'').replace(/```\s*/g,'').trim();
     try{return JSON.parse(cleaned);}catch(e){}
@@ -880,158 +993,202 @@ function toggleWork(el){
     var obj=eb(cleaned,'{','}');if(obj){try{return JSON.parse(obj);}catch(e){}}
     throw new Error('Could not extract JSON');
   }
-  var ENT_CTX2='TrainerCentral Enterprise context: B2B SaaS LMS by Zoho. Enterprise positioning: corporate L&D, compliance training, training institutes. Key differentiators: built-in live classroom, zero tx fees, white-label, flat pricing, ISO27001+SOC2, SAML SSO. Competitors: Docebo, Cornerstone OnDemand, TalentLMS, LearnWorlds, Thinkific Plus, iSpring Suite.';
-  async function ciapi2(prompt){
-    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1400,messages:[{role:'user',content:prompt}]})});
+
+  var ENT_CTX='TrainerCentral Enterprise context: TrainerCentral is an all-in-one LMS and online training platform by Zoho Corporation. Enterprise positioning: corporate L&D, compliance training, training institutes, hospitality. Key differentiators: built-in live virtual classroom (no Zoom), zero transaction fees, 100% white-label, flat pricing, ISO 27001 + SOC 2 Type II, SAML SSO, 15+ payment gateways, country-wise pricing, 17 languages. Key enterprise competitors: Docebo, Cornerstone OnDemand, TalentLMS, LearnWorlds, Thinkific Plus, iSpring Suite. Enterprise deal considerations: SCORM (now in beta), Salesforce integration, dedicated CSM, advanced analytics.';
+
+  async function ciapi(prompt){
+    var r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1400,messages:[{role:'user',content:prompt}]})});
     if(!r.ok)throw new Error('API '+r.status);
     var d=await r.json();
     if(d.error)throw new Error(d.error.message);
-    return extractJSON2(d.content);
+    return extractJSON(d.content);
   }
-  async function parseSignal2(raw){
+
+  async function parseSignal(raw){
     var today=new Date().toISOString().split('T')[0];
-    return ciapi2('Parse this competitive signal. Today:'+today+'. Signal:"""'+raw+'""" '+ENT_CTX2+' Return JSON ONLY:{"date":"YYYY-MM-DD","competitor":"best match or Unknown","pageType":"pricing/enterprise/features/blog/reviews/jobs/press/manual","change":"1-3 sentence description"}');
+    return ciapi('Parse this enterprise competitive signal for a B2B SaaS LMS team. Today: '+today+'.\nSignal: """'+raw+'"""\n'+ENT_CTX+'\nReturn JSON ONLY: {"date":"YYYY-MM-DD","competitor":"best match or Unknown","pageType":"pricing/enterprise/features/blog/reviews/jobs/press/manual","change":"1-3 sentence description of what changed or was observed"}');
   }
-  async function analyzeSignal2(entry){
+
+  async function analyzeSignal(entry){
     var pt=gpm(entry.pageType);
-    return ciapi2('Enterprise CI analyst for TrainerCentral B2B SaaS LMS. Competitor:'+entry.competitor+' Surface:'+pt.label+' Date:'+entry.date+' Signal:'+entry.change+' '+ENT_CTX2+' Return JSON ONLY:{"theme":"Pricing Move/Feature Launch/Enterprise Positioning/Security & Compliance/Messaging Shift/Partnership Announcement/Hiring Signal/Noise","isNoise":false,"noiseReason":null,"actionNeeded":false,"actionTeam":"PMM/Product/Sales/Leadership/null","actionText":null,"watchFor":null,"interpretation":null,"priority":"URGENT/UPDATE/WATCH/FYI"}');
+    var prompt='You are an enterprise competitive intelligence analyst for TrainerCentral, a B2B SaaS LMS. Competitor: '+entry.competitor+' | Surface: '+pt.label+' | Date: '+entry.date+' | Signal: '+entry.change+'\n\n'+ENT_CTX+'\n\nReturn JSON ONLY: {"theme":"Pricing Move/Feature Launch/Enterprise Positioning/Security & Compliance/Messaging Shift/Partnership Announcement/Hiring Signal/Noise","isNoise":false,"noiseReason":null,"actionNeeded":false,"actionTeam":"PMM/Product/Sales/Leadership/null","actionText":null,"watchFor":null,"interpretation":null,"priority":"URGENT/UPDATE/WATCH/FYI"}';
+    return ciapi(prompt);
   }
-  function commitEntry2(parsed,result){
+
+  function commitEntry(parsed,result){
     var entry={id:Date.now()+Math.random(),date:parsed.date,competitor:parsed.competitor,pageType:parsed.pageType,change:parsed.change,theme:result.theme||'Other',isNoise:result.isNoise||false,noiseReason:result.noiseReason||null,actionNeeded:result.actionNeeded||false,actionTeam:result.actionTeam||null,actionText:result.actionText||null,watchFor:result.watchFor||null,interpretation:result.interpretation||null,priority:result.priority||'FYI'};
-    CS2.entries.unshift(entry);
-    updateHyps2(entry);
+    CS.entries.unshift(entry);
+    updateHyps(entry);
     return entry.id;
   }
-  function wconf2(entries){var w=entries.reduce(function(s,e){return s+(gpm(e.pageType).weight||1);},0);var base=Math.min(30+w*12,90);var days=entries.length>0?(Date.now()-new Date(entries[0].date))/86400000:99;return Math.min(Math.round(base+(days<14?5:days<30?0:-5)),95);}
-  function hypActions2(theme,comp,count){
-    var m={'Pricing Move':[{team:'PMM',text:'Update TC battlecard for '+comp+'. Add pricing counter-narrative.'},{team:'Sales',text:comp+' pricing change — brief reps before enterprise outreach.'}],'Feature Launch':[{team:'Product',text:comp+' shipping new capability. Flag to TC product roadmap.'},{team:'PMM',text:'Assess if '+comp+' feature needs a positioning response.'}],'Enterprise Positioning':[{team:'PMM',text:comp+' shifting enterprise narrative. '+count+' signals. Update competitive overview.'},{team:'Sales',text:'Alert AEs: updated '+comp+' positioning before enterprise calls.'}],'Hiring Signal':[{team:'Leadership',text:comp+' enterprise hiring signal — expect announcement in 90 days.'},{team:'PMM',text:'Note in '+comp+' brief: expansion coming. Watch for announcement.'}]};
+
+  function wconf(entries){var w=entries.reduce(function(s,e){return s+(gpm(e.pageType).weight||1);},0);var base=Math.min(30+w*12,90);var days=entries.length>0?(Date.now()-new Date(entries[0].date))/86400000:99;return Math.min(Math.round(base+(days<14?5:days<30?0:-5)),95);}
+
+  function hypActions(theme,comp,count){
+    var m={
+      'Pricing Move':[{team:'PMM',text:'Update TC battlecard for '+comp+'. Add pricing counter-narrative.'},{team:'Sales',text:comp+' pricing change — brief reps before next enterprise outreach cycle.'}],
+      'Feature Launch':[{team:'Product',text:comp+' shipping new capability. Flag to TC product roadmap review.'},{team:'PMM',text:'Assess if '+comp+' feature launch needs a response in positioning or messaging.'}],
+      'Enterprise Positioning':[{team:'PMM',text:comp+' shifting enterprise narrative. '+count+' signals confirm. Update competitive overview deck.'},{team:'Sales',text:'Alert AEs: updated '+comp+' positioning before enterprise calls.'}],
+      'Security & Compliance':[{team:'Product',text:comp+' making compliance push. Evaluate TC security cert narrative.'},{team:'PMM',text:'Refresh security proof points in enterprise solution brief.'}],
+      'Messaging Shift':[{team:'PMM',text:comp+' changing core message. '+count+' signals. Update positioning matrix.'},{team:'Sales',text:'Review enterprise pitch deck against new '+comp+' narrative.'}],
+      'Hiring Signal':[{team:'Leadership',text:comp+' enterprise hiring signal — expect product announcement in 90 days.'},{team:'PMM',text:'Note in '+comp+' brief: expansion coming. Watch for announcement.'}]
+    };
     return m[theme]||[{team:'PMM',text:'Review '+comp+' enterprise profile. '+count+' signals warrant battlecard update.'}];
   }
-  function updateHyps2(entry){
+
+  function updateHyps(entry){
     if(entry.isNoise||!entry.theme||entry.theme==='Noise')return;
-    var rel=CS2.entries.filter(function(e){return e.competitor===entry.competitor&&e.theme===entry.theme&&!e.isNoise;});
+    var rel=CS.entries.filter(function(e){return e.competitor===entry.competitor&&e.theme===entry.theme&&!e.isNoise;});
     if(rel.length<3)return;
     var id=entry.competitor+'__'+entry.theme;
-    var conf=wconf2(rel);
+    var conf=wconf(rel);
     var sigs=rel.map(function(e){return e.date+' ['+gpm(e.pageType).label+']: '+e.change.slice(0,80)+(e.change.length>80?'...':'');});
-    var actions=hypActions2(entry.theme,entry.competitor,rel.length);
-    var hm={'Pricing Move':entry.competitor+' has made '+rel.length+' pricing moves. Battlecard update needed.','Feature Launch':entry.competitor+' on a feature shipping sprint. '+rel.length+' signals — coordinate response.','Enterprise Positioning':entry.competitor+' repositioning for enterprise. '+rel.length+' signals confirm.','Hiring Signal':entry.competitor+' enterprise hiring pattern ('+rel.length+' signals) — expect announcement in 90-120 days.'};
-    var ex=CS2.hyps.find(function(h){return h.id===id;});
+    var actions=hypActions(entry.theme,entry.competitor,rel.length);
+    var hm={
+      'Pricing Move':entry.competitor+' has made '+rel.length+' pricing moves. Deliberate enterprise strategy shift — update battlecard.',
+      'Feature Launch':entry.competitor+' on a feature shipping sprint. '+rel.length+' signals — coordinate Product + PMM response.',
+      'Enterprise Positioning':entry.competitor+' repositioning for enterprise. '+rel.length+' signals confirm structural messaging change.',
+      'Security & Compliance':entry.competitor+' making a compliance push. '+rel.length+' signals — TC security story needs refresh.',
+      'Messaging Shift':entry.competitor+' changing core message. '+rel.length+' signals confirm. Competitive overview needs update.',
+      'Hiring Signal':entry.competitor+' enterprise hiring pattern ('+rel.length+' signals) — expect announcement in 90-120 days.'
+    };
+    var ex=CS.hyps.find(function(h){return h.id===id;});
     if(ex){ex.signalCount=rel.length;ex.confidence=conf;ex.signals=sigs;ex.updatedAt=entry.date;ex.hypothesis=hm[entry.theme]||rel.length+' signals form a pattern.';ex.actions=actions;}
-    else CS2.hyps.unshift({id:id,competitor:entry.competitor,theme:entry.theme,hypothesis:hm[entry.theme]||rel.length+' signals..',signalCount:rel.length,confidence:conf,signals:sigs,createdAt:entry.date,updatedAt:entry.date,actions:actions});
+    else CS.hyps.unshift({id:id,competitor:entry.competitor,theme:entry.theme,hypothesis:hm[entry.theme]||rel.length+' signals form a pattern.',signalCount:rel.length,confidence:conf,signals:sigs,createdAt:entry.date,updatedAt:entry.date,actions:actions});
   }
-  function renderActBlock2(entry){
-    if(entry.isNoise)return'<div class="ciw-act-block act-fyi2"><div class="ciw-act-label">Logged for context</div>'+(entry.noiseReason||'Minor change.')+'</div>';
-    if(entry.actionNeeded&&entry.actionText)return'<div class="ciw-act-block act-do2"><div class="ciw-act-label">Action needed'+(entry.actionTeam?' · '+teamchip(entry.actionTeam):'')+'</div>'+entry.actionText+'</div>';
-    if(entry.watchFor)return'<div class="ciw-act-block act-watch2"><div class="ciw-act-label">Watch</div>'+(entry.interpretation||'')+'<div style="font-size:11px;margin-top:4px;font-style:italic">Look for: '+entry.watchFor+'</div></div>';
-    return'<div class="ciw-act-block act-fyi2"><div class="ciw-act-label">FYI</div>'+(entry.interpretation||'Logged.')+'</div>';
+
+  function renderActBlock(entry){
+    if(entry.isNoise)return'<div class="ci-act-block act-fyi"><div class="ci-act-label">Logged for context</div>'+(entry.noiseReason||'Minor change.')+'</div>';
+    if(entry.actionNeeded&&entry.actionText)return'<div class="ci-act-block act-do"><div class="ci-act-label">Action needed'+(entry.actionTeam?' · '+teamchip(entry.actionTeam):'')+'</div>'+entry.actionText+'</div>';
+    if(entry.watchFor)return'<div class="ci-act-block act-watch"><div class="ci-act-label">Watch — one more signal needed</div>'+(entry.interpretation||'')+'<div style="font-size:11px;margin-top:4px;font-style:italic">Look for: '+entry.watchFor+'</div></div>';
+    return'<div class="ci-act-block act-fyi"><div class="ci-act-label">FYI</div>'+(entry.interpretation||'Logged.')+'</div>';
   }
-  async function handleParse2(){
-    if(!CS2.rawPaste.trim()){CS2.error='Paste a signal first.';cirender2();return;}
-    CS2.error='';CS2.step='parsing';cirender2();
-    try{CS2.parsed=await parseSignal2(CS2.rawPaste);CS2.step='confirm';}
-    catch(e){CS2.error='Could not parse: '+e.message;CS2.step='paste';}
-    cirender2();
+
+  async function handleParse(){
+    if(!CS.rawPaste.trim()){CS.error='Paste a signal first.';cirender();return;}
+    CS.error='';CS.step='parsing';cirender();
+    try{CS.parsed=await parseSignal(CS.rawPaste);CS.step='confirm';}
+    catch(e){CS.error='Could not parse: '+e.message;CS.step='paste';}
+    cirender();
   }
-  async function handleConfirm2(){
-    if(!CS2.parsed)return;
-    CS2.error='';CS2.step='processing';CS2.statusLabel='Analysing signal...';cirender2();
+
+  async function handleConfirm(){
+    if(!CS.parsed)return;
+    CS.error='';CS.step='processing';CS.statusLabel='Analysing signal...';cirender();
     try{
-      var result=await analyzeSignal2(CS2.parsed);
-      commitEntry2(CS2.parsed,result);
-      cisave2();
-      CS2.rawPaste='';CS2.parsed=null;CS2.step='paste';CS2.statusLabel='';CS2.tab='log';
-    }catch(e){CS2.error='Failed: '+e.message;CS2.step='confirm';}
-    cirender2();
+      var result=await analyzeSignal(CS.parsed);
+      commitEntry(CS.parsed,result);
+      cisave();
+      CS.rawPaste='';CS.parsed=null;CS.step='paste';CS.statusLabel='';CS.tab='log';
+    }catch(e){CS.error='Failed: '+e.message;CS.step='confirm';}
+    cirender();
   }
-  function cirender2(){
-    var shell=document.getElementById('ci-shell-embed');
-    if(!shell)return;
-    var total=CS2.entries.length;
-    var actCount=CS2.entries.filter(function(e){return e.actionNeeded;}).length;
-    var watchCount=CS2.entries.filter(function(e){return !e.isNoise&&!e.actionNeeded&&e.watchFor;}).length;
-    var noiseCount=CS2.entries.filter(function(e){return e.isNoise;}).length;
-    var compOpts=['All'].concat(COMPETITORS.filter(function(c){return CS2.entries.some(function(e){return e.competitor===c;});}));
-    var filtered=CS2.filter==='All'?CS2.entries:CS2.entries.filter(function(e){return e.competitor===CS2.filter;});
-    if(CS2.filterAction==='act')filtered=filtered.filter(function(e){return e.actionNeeded;});
-    else if(CS2.filterAction==='watch')filtered=filtered.filter(function(e){return !e.isNoise&&!e.actionNeeded&&e.watchFor;});
-    else if(CS2.filterAction==='noise')filtered=filtered.filter(function(e){return e.isNoise;});
-    var html='<div class="ciw">';
-    html+='<div class="ciw-hdr"><div><div class="ciw-hdr-title">Enterprise CI Tracker</div><div class="ciw-hdr-sub">'+total+' signals · Claude API · Live</div></div></div>';
-    html+='<div class="ciw-stats"><div class="ciw-stat"><div class="ciw-stat-n" style="color:#166534">'+actCount+'</div><div class="ciw-stat-l">Action needed</div></div><div class="ciw-stat"><div class="ciw-stat-n" style="color:#854F0B">'+watchCount+'</div><div class="ciw-stat-l">Watch</div></div><div class="ciw-stat"><div class="ciw-stat-n">'+CS2.hyps.length+'</div><div class="ciw-stat-l">Hypotheses</div></div><div class="ciw-stat"><div class="ciw-stat-n" style="color:#9ca3af">'+noiseCount+'</div><div class="ciw-stat-l">Noise</div></div></div>';
-    html+='<div class="ciw-tabs-wrap"><div class="ciw-tabs"><button class="ciw-tab'+(CS2.tab==='add'?' active':'')+'" onclick="CS2.tab=\'add\';cirender2()">+ Log signal</button><button class="ciw-tab'+(CS2.tab==='log'?' active':'')+'" onclick="CS2.tab=\'log\';cirender2()">Signal log'+(total>0?' ('+total+')':'')+'</button><button class="ciw-tab'+(CS2.tab==='hyps'?' active':'')+'" onclick="CS2.tab=\'hyps\';cirender2()">Hypotheses'+(CS2.hyps.length>0?' ('+CS2.hyps.length+')':'')+'</button></div></div>';
-    html+='<div class="ciw-body">';
-    if(CS2.tab==='add'){
-      if(CS2.step==='paste'||CS2.step==='parsing'){
-        html+='<div class="ciw-card"><div class="ciw-label" style="margin-bottom:6px">Paste any competitor signal</div>';
-        html+='<textarea class="ciw-textarea" style="min-height:90px" placeholder="Paste anything — a pricing page change, G2 review pattern, new feature announcement, job posting that signals product direction..." oninput="CS2.rawPaste=this.value">'+CS2.rawPaste+'</textarea>';
-        if(CS2.error)html+='<div class="ciw-err">'+CS2.error+'</div>';
-        if(CS2.step==='parsing')html+='<div class="ciw-pbox"><div class="ciw-spinner"></div>Parsing signal...</div>';
-        html+='<div style="margin-top:10px;display:flex;justify-content:flex-end"><button class="ciw-btn primary" onclick="handleParse2()" '+(CS2.step==='parsing'?'disabled':'')+'>Extract</button></div></div>';
+
+  function deleteEntry(id){CS.entries=CS.entries.filter(function(e){return e.id!==id;});cisave();cirender();}
+  function clearAll(){if(CS.confirmClear==='yes'){CS.entries=[];CS.hyps=[];CS.confirmClear=null;cisave();cirender();}else{CS.confirmClear='yes';cirender();}}
+  function cancelClear(){CS.confirmClear=null;cirender();}
+
+  function cirender(){
+    var total=CS.entries.length;
+    var actCount=CS.entries.filter(function(e){return e.actionNeeded;}).length;
+    var watchCount=CS.entries.filter(function(e){return !e.isNoise&&!e.actionNeeded&&e.watchFor;}).length;
+    var noiseCount=CS.entries.filter(function(e){return e.isNoise;}).length;
+    var compOpts=['All'].concat(COMPETITORS.filter(function(c){return CS.entries.some(function(e){return e.competitor===c;});}));
+    var filtered=CS.filter==='All'?CS.entries:CS.entries.filter(function(e){return e.competitor===CS.filter;});
+    if(CS.filterAction==='act')filtered=filtered.filter(function(e){return e.actionNeeded;});
+    else if(CS.filterAction==='watch')filtered=filtered.filter(function(e){return !e.isNoise&&!e.actionNeeded&&e.watchFor;});
+    else if(CS.filterAction==='noise')filtered=filtered.filter(function(e){return e.isNoise;});
+
+    var html='<div class="ci-wrap">';
+    html+='<div class="ci-hdr"><div><div class="ci-hdr-title">Enterprise CI Tracker</div><div class="ci-hdr-sub">'+total+' signals logged · Claude API · Live</div></div></div>';
+    html+='<div class="ci-stats">';
+    html+='<div class="ci-stat"><div class="ci-stat-n" style="color:#166534">'+actCount+'</div><div class="ci-stat-l">Action needed</div></div>';
+    html+='<div class="ci-stat"><div class="ci-stat-n" style="color:#854F0B">'+watchCount+'</div><div class="ci-stat-l">Watch</div></div>';
+    html+='<div class="ci-stat"><div class="ci-stat-n">'+CS.hyps.length+'</div><div class="ci-stat-l">Hypotheses</div></div>';
+    html+='<div class="ci-stat"><div class="ci-stat-n" style="color:#9ca3af">'+noiseCount+'</div><div class="ci-stat-l">Noise</div></div>';
+    html+='</div>';
+    html+='<div class="ci-tabs-wrap"><div class="ci-tabs">';
+    html+='<div class="ci-tab'+(CS.tab==='add'?' active':'')+'" onclick="ciSwitchTab(\'add\')">+ Log signal</div>';
+    html+='<div class="ci-tab'+(CS.tab==='log'?' active':'')+'" onclick="ciSwitchTab(\'log\')">Signal log'+(total>0?' ('+total+')':'')+' </div>';
+    html+='<div class="ci-tab'+(CS.tab==='hyps'?' active':'')+'" onclick="ciSwitchTab(\'hyps\')">Hypotheses'+(CS.hyps.length>0?' ('+CS.hyps.length+')':'')+' </div>';
+    html+='</div></div>';
+    html+='<div class="ci-body">';
+
+    if(CS.tab==='add'){
+      if(CS.step==='paste'||CS.step==='parsing'){
+        html+='<div class="ci-card"><div class="ci-label" style="margin-bottom:6px">Paste any enterprise competitor signal</div>';
+        html+='<textarea class="ci-textarea" style="min-height:100px" placeholder="Paste anything — a pricing page change caught by VisualPing, a G2 review pattern, a new enterprise feature announcement, a job posting that signals product direction, a press release..." oninput="CS.rawPaste=this.value">'+CS.rawPaste+'</textarea>';
+        if(CS.error)html+='<div class="ci-err">'+CS.error+'</div>';
+        if(CS.step==='parsing')html+='<div class="ci-pbox"><div class="ci-spinner"></div>Parsing signal...</div>';
+        html+='<div style="margin-top:10px;display:flex;justify-content:flex-end"><button class="ci-btn primary" onclick="ciParse()" '+(CS.step==='parsing'?'disabled':'')+'>Extract</button></div></div>';
       }
-      if(CS2.step==='confirm'&&CS2.parsed){
-        var p=CS2.parsed;
+      if(CS.step==='confirm'&&CS.parsed){
+        var p=CS.parsed;
         var compOpts2=COMPETITORS.map(function(c){return'<option '+(p.competitor===c?'selected':'')+'>'+c+'</option>';}).join('');
         var ptOpts=PAGE_TYPES.map(function(pt){return'<option value="'+pt.key+'" '+(p.pageType===pt.key?'selected':'')+'>'+pt.label+'</option>';}).join('');
-        html+='<div class="ciw-card"><div style="background:#f9f9fb;border-radius:8px;padding:10px;border:1px solid #e5e4f0;margin-bottom:10px">';
-        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px"><div style="color:#888;min-width:70px">Date</div><input type="date" value="'+p.date+'" onchange="CS2.parsed.date=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px"></div>';
-        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px;margin-top:4px"><div style="color:#888;min-width:70px;padding-top:4px">Competitor</div><select onchange="CS2.parsed.competitor=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px">'+compOpts2+'</select></div>';
-        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px;margin-top:4px"><div style="color:#888;min-width:70px;padding-top:4px">Surface</div><select onchange="CS2.parsed.pageType=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px">'+ptOpts+'</select></div>';
-        html+='<div style="padding:6px 0 2px;font-size:12px;margin-top:4px"><div style="color:#888;margin-bottom:4px">What changed</div><textarea style="font-size:12px;min-height:56px;width:100%;padding:6px 8px;border:1px solid #d1d5db;border-radius:5px;font-family:inherit;resize:vertical" onchange="CS2.parsed.change=this.value">'+p.change+'</textarea></div></div>';
-        if(CS2.error)html+='<div class="ciw-err">'+CS2.error+'</div>';
-        html+='<div style="display:flex;gap:7px;justify-content:flex-end"><button class="ciw-btn ghost sm" onclick="CS2.step=\'paste\';CS2.parsed=null;CS2.error=\'\';cirender2()">Back</button><button class="ciw-btn primary sm" onclick="handleConfirm2()">Analyse</button></div></div>';
+        html+='<div class="ci-card">';
+        html+='<div style="background:#f9f9fb;border-radius:8px;padding:10px;border:1px solid #e5e4f0;margin-bottom:10px">';
+        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px"><div style="color:#888;min-width:70px">Date</div><div><input type="date" value="'+p.date+'" onchange="CS.parsed.date=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px;width:145px"></div></div>';
+        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px;margin-top:4px"><div style="color:#888;min-width:70px;padding-top:4px">Competitor</div><div><select onchange="CS.parsed.competitor=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px">'+compOpts2+'</select></div></div>';
+        html+='<div style="display:flex;gap:10px;padding:4px 0;border-bottom:1px solid #f3f4f6;font-size:12px;margin-top:4px"><div style="color:#888;min-width:70px;padding-top:4px">Surface</div><div><select onchange="CS.parsed.pageType=this.value" style="padding:3px 7px;font-size:12px;border:1px solid #d1d5db;border-radius:5px">'+ptOpts+'</select></div></div>';
+        html+='<div style="padding:6px 0 2px;font-size:12px;margin-top:4px"><div style="color:#888;margin-bottom:4px">What changed</div><textarea style="font-size:12px;min-height:56px;width:100%;padding:6px 8px;border:1px solid #d1d5db;border-radius:5px;font-family:inherit;resize:vertical" onchange="CS.parsed.change=this.value">'+p.change+'</textarea></div>';
+        html+='</div>';
+        if(CS.error)html+='<div class="ci-err">'+CS.error+'</div>';
+        html+='<div style="display:flex;gap:7px;justify-content:flex-end"><button class="ci-btn ghost sm" onclick="CS.step=\'paste\';CS.parsed=null;CS.error=\'\';cirender()">Back</button><button class="ci-btn primary sm" onclick="ciConfirm()">Analyse</button></div>';
+        html+='</div>';
       }
-      if(CS2.step==='processing')html+='<div class="ciw-pbox"><div class="ciw-spinner"></div>'+(CS2.statusLabel||'Analysing...')+'</div>';
+      if(CS.step==='processing')html+='<div class="ci-pbox"><div class="ci-spinner"></div>'+(CS.statusLabel||'Analysing...')+'</div>';
     }
-    if(CS2.tab==='log'){
-      if(total===0){html+='<div class="ciw-empty">No signals yet. Log one from the + Log signal tab.</div>';}
+
+    if(CS.tab==='log'){
+      if(total===0){html+='<div class="ci-empty">No signals yet. Log one from the + Log signal tab.</div>';}
       else{
         html+='<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px">';
-        if(compOpts.length>1)compOpts.forEach(function(f){html+='<button class="ciw-filt'+(CS2.filter===f?' active':'')+'" onclick="CS2.filter=\''+f+'\';cirender2()">'+f+'</button>';});
+        if(compOpts.length>1)compOpts.forEach(function(f){html+='<button class="ci-filt'+(CS.filter===f?' active':'')+'" onclick="CS.filter=\''+f+'\';cirender()">'+f+'</button>';});
         html+='<span style="width:1px;height:16px;background:#e5e4f0;display:inline-block;margin:0 2px"></span>';
-        ['all','act','watch','noise'].forEach(function(k){var labels={all:'All',act:'Act ('+actCount+')',watch:'Watch ('+watchCount+')',noise:'Noise ('+noiseCount+')'};html+='<button class="ciw-filt'+(CS2.filterAction===k?' active':'')+'" onclick="CS2.filterAction=\''+k+'\';cirender2()">'+labels[k]+'</button>';});
-        if(CS2.confirmClear==='yes')html+='<div style="margin-left:auto;display:flex;align-items:center;gap:6px"><span style="font-size:11px;color:#8B1A1A;font-weight:600">Delete all?</span><button class="ciw-btn sm danger" onclick="CS2.entries=[];CS2.hyps=[];CS2.confirmClear=null;cisave2();cirender2()">Yes</button><button class="ciw-btn sm ghost" onclick="CS2.confirmClear=null;cirender2()">No</button></div>';
-        else html+='<div style="margin-left:auto"><button class="ciw-btn sm danger" onclick="CS2.confirmClear=\'yes\';cirender2()">Clear all</button></div>';
+        html+='<button class="ci-filt'+(CS.filterAction==='all'?' active':'')+'" onclick="CS.filterAction=\'all\';cirender()">All</button>';
+        html+='<button class="ci-filt'+(CS.filterAction==='act'?' active':'')+'" onclick="CS.filterAction=\'act\';cirender()">Act ('+actCount+')</button>';
+        html+='<button class="ci-filt'+(CS.filterAction==='watch'?' active':'')+'" onclick="CS.filterAction=\'watch\';cirender()">Watch ('+watchCount+')</button>';
+        html+='<button class="ci-filt'+(CS.filterAction==='noise'?' active':'')+'" onclick="CS.filterAction=\'noise\';cirender()">Noise ('+noiseCount+')</button>';
+        if(CS.confirmClear==='yes')html+='<div style="margin-left:auto;display:flex;align-items:center;gap:6px"><span style="font-size:11px;color:#8B1A1A;font-weight:600">Delete all?</span><button class="ci-btn sm danger" onclick="ciClearAll()">Yes</button><button class="ci-btn sm ghost" onclick="ciCancelClear()">No</button></div>';
+        else html+='<div style="margin-left:auto"><button class="ci-btn sm danger" onclick="ciClearAll()">Clear all</button></div>';
         html+='</div>';
-        if(filtered.length===0){html+='<div class="ciw-empty">No entries match.</div>';}
+        if(filtered.length===0){html+='<div class="ci-empty">No entries match this filter.</div>';}
         else{
-          html+='<div class="ciw-card" style="padding:0 12px"><div style="display:grid;grid-template-columns:72px 100px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div class="ciw-col-hdr">Date</div><div class="ciw-col-hdr">Competitor</div><div class="ciw-col-hdr">Signal + Impact</div></div>';
-          html+=filtered.map(function(e){return'<div class="ciw-entry-grid"><div><div style="font-size:11px;font-weight:600">'+e.date+'</div><div style="margin-top:3px">'+cbadge(e.pageType)+'</div></div><div><div style="font-size:12px;font-weight:600">'+e.competitor+'</div>'+(!e.isNoise?'<div style="margin-top:3px">'+tbadge(e.theme||'Other')+'</div>':'<div style="margin-top:3px"><span class="ciw-badge bnois2">Noise</span></div>')+'</div><div><div style="font-size:12px;font-weight:500;margin-bottom:2px">'+e.change+'</div>'+renderActBlock2(e)+'<div style="text-align:right;margin-top:5px"><button onclick="CS2.entries=CS2.entries.filter(function(x){return x.id!=='+e.id+'});cisave2();cirender2()" style="font-size:10px;color:#9ca3af;background:none;border:none;cursor:pointer">remove</button></div></div></div>';}).join('');
+          html+='<div class="ci-card" style="padding:0 12px"><div style="display:grid;grid-template-columns:72px 100px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid #f3f4f6"><div class="ci-col-hdr">Date</div><div class="ci-col-hdr">Competitor</div><div class="ci-col-hdr">Signal + Impact</div></div>';
+          html+=filtered.map(function(e){return'<div class="ci-entry-grid"><div><div style="font-size:11px;font-weight:600">'+e.date+'</div><div style="margin-top:3px">'+cbadge(e.pageType)+'</div></div><div><div style="font-size:12px;font-weight:600">'+e.competitor+'</div>'+(!e.isNoise?'<div style="margin-top:3px">'+tbadge(e.theme||'Other')+'</div>':'<div style="margin-top:3px"><span class="ci-badge bnoise">Noise</span></div>')+'</div><div><div style="font-size:12px;font-weight:500;margin-bottom:2px">'+e.change+'</div>'+renderActBlock(e)+'<div style="text-align:right;margin-top:5px"><button onclick="ciDeleteEntry('+e.id+')" style="font-size:10px;color:#9ca3af;background:none;border:none;cursor:pointer">remove</button></div></div></div>';}).join('');
           html+='</div>';
         }
       }
     }
-    if(CS2.tab==='hyps'){
-      if(CS2.hyps.length===0)html+='<div class="ciw-empty">No hypotheses yet.<br><span style="font-size:11px">Log 3+ signals on the same theme for one competitor.</span></div>';
-      else html+=CS2.hyps.map(function(h){return'<div class="ciw-hyp-card"><div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:5px"><span style="font-size:13px;font-weight:700">'+h.competitor+'</span>'+tbadge(h.theme)+'<span class="ciw-sig-pill">'+h.signalCount+' signals</span></div><div style="font-size:12px;line-height:1.65;margin-bottom:8px">'+h.hypothesis+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px"><div style="font-size:10px;color:#888">Confidence</div><div style="font-size:11px;font-weight:700;color:'+cc(h.confidence)+'">'+h.confidence+'%</div></div><div class="ciw-conf-wrap"><div class="ciw-conf-bar" style="width:'+h.confidence+'%;background:'+cc(h.confidence)+'"></div></div>'+(h.actions&&h.actions.length?'<div class="ciw-hyp-act"><div class="ciw-hyp-act-label">Actions</div>'+h.actions.map(function(a){return'<div class="ciw-hyp-act-item">'+teamchip(a.team)+' <span>'+a.text+'</span></div>';}).join('')+'</div>':'')+'<div style="margin-top:10px"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Supporting signals</div><div style="font-size:11px;color:#666;line-height:1.9">'+h.signals.map(function(s){return'<div>— '+s+'</div>';}).join('')+'</div></div></div>';}).join('');
+
+    if(CS.tab==='hyps'){
+      if(CS.hyps.length===0)html+='<div class="ci-empty">No hypotheses yet.<br><span style="font-size:11px">Log 3+ non-noise signals on the same theme for one competitor.</span></div>';
+      else html+=CS.hyps.map(function(h){return'<div class="ci-hyp-card"><div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:5px"><span style="font-size:13px;font-weight:700">'+h.competitor+'</span>'+tbadge(h.theme)+'<span class="ci-signal-pill">'+h.signalCount+' signals</span></div><div style="font-size:12px;line-height:1.65;margin-bottom:8px">'+h.hypothesis+'</div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px"><div style="font-size:10px;color:#888">Confidence</div><div style="font-size:11px;font-weight:700;color:'+cc(h.confidence)+'">'+h.confidence+'%</div></div><div class="ci-conf-wrap"><div class="ci-conf-bar" style="width:'+h.confidence+'%;background:'+cc(h.confidence)+'"></div></div>'+(h.actions&&h.actions.length?'<div class="ci-hyp-act"><div class="ci-hyp-act-label">Actions</div>'+h.actions.map(function(a){return'<div class="ci-hyp-act-item">'+teamchip(a.team)+' <span>'+a.text+'</span></div>';}).join('')+'</div>':'')+'<div style="margin-top:10px"><div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Supporting signals</div><div style="font-size:11px;color:#666;line-height:1.9">'+h.signals.map(function(s){return'<div>— '+s+'</div>';}).join('')+'</div></div></div>';}).join('');
     }
+
     html+='</div></div>';
-    shell.innerHTML=html;
+    document.getElementById('ci-shell').innerHTML=html;
   }
-  window.CS2=CS2;
-  window.handleParse2=handleParse2;
-  window.handleConfirm2=handleConfirm2;
-  window.cirender2=cirender2;
-  ciload2();
-  cirender2();
+
+  function ciSwitchTab(t){CS.tab=t;cirender();}
+  function ciParse(){handleParse();}
+  function ciConfirm(){handleConfirm();}
+  function ciDeleteEntry(id){deleteEntry(id);}
+  function ciClearAll(){clearAll();}
+  function ciCancelClear(){cancelClear();}
+
+  window.ciSwitchTab=ciSwitchTab;
+  window.ciParse=ciParse;
+  window.ciConfirm=ciConfirm;
+  window.ciDeleteEntry=ciDeleteEntry;
+  window.ciClearAll=ciClearAll;
+  window.ciCancelClear=ciCancelClear;
+  window.CS=CS;
+
+  ciload();
+  cirender();
 })();
-
-// CARD GLOW
-function cardGlow(e,card){
-  const r=card.getBoundingClientRect();
-  card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
-  card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
-}
-
-
-
-// NAV smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
-  });
-});
 </script>
 </body>
 </html>
